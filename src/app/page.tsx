@@ -11,7 +11,6 @@ export default function Home() {
         <p className="text-sm text-muted-foreground">
           Designer, Founder.
         </p>
-        {/* Wrap "about", "design", "work" in their own div and add margin-top */}
         <div className="pt-8">
           <Link href="/about" passHref>
             <p className="cursor-pointer pt-2 text-sm text-muted-foreground transition-opacity duration-150 hover:opacity-25">
