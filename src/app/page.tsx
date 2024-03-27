@@ -3,17 +3,17 @@ import { Novatrix } from "uvcanvas"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import Link from 'next/link';
 import Image from 'next/image';
-import profilepic from 'public/profile.pic-2.png'
+
 
 export default function Home() {
   return (
     <div className="flex p-32 h-screen">
       <div className="flex-column justify-end items-start">
-        <div className="absolute top-32 right-32 w-[100px] h-[100px]">
+        <div className="absolute top-32 right-32 w-[100px] h-[100px] border-2 border-slate-300">
           <Image
-            src="/profile.pic-2.png" // Make sure 'profilePic' is correctly imported and named
+            src="/profile.pic-24.png" //
             alt="Profile Picture"
-            layout="fill" // This makes the image fill the container
+            layout="fill" 
             style={{ objectFit: 'cover', width: '100%', height: '100%' }} 
           />
         </div>
