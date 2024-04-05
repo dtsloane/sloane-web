@@ -3,6 +3,7 @@ import { Novatrix } from "uvcanvas"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import Link from 'next/link';
 import Image from "next/legacy/image";
+import "./globals.css";
 
 
 export default function Home() {
