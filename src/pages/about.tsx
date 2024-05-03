@@ -11,6 +11,13 @@ const About = () => {
                 </p>
             </div>
             <Separator className='w-5 mt-8'/>
+            <div className='mt-8 space-y-2'>
+                <p className='text-sm text-muted-foreground'>
+                    <a href='mailto:me@davidsloane.xyz' className='text-sm cursor-pointer transition-opacity duration-150 hover:opacity-25'>
+                        me@davidsloane.xyz
+                    </a>
+                </p>
+            </div>
         </div>
     );
 }
