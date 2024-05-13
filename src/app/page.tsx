@@ -34,7 +34,7 @@ export default function Home() {
               design
             </p>
           </Link>
-          <Link href="/about" passHref>
+          <Link href="/work" passHref>
             <p className="cursor-pointer pt-2 text-sm text-muted-foreground transition-opacity duration-150 hover:opacity-25">
               work
             </p>

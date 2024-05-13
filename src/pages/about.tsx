@@ -7,17 +7,12 @@ const About = () => {
             <div className="space-y-2">
                 <h4 className="text-md font-medium">About</h4>
                 <p className="text-sm text-muted-foreground">
-                  Born in Cork, Ireland. My childhood consisted of kicking a football, jailbreaking iPhones and drawing.  
+                  Designer, Builder, Founder. 
+                  Wasn't too bad at kicking a football around too. 
                 </p>
             </div>
             <Separator className='w-5 mt-8'/>
             <div className='mt-8 space-y-2'>
-                <h4 className='text-sm font-medium' >
-                    Work
-                </h4>
-                <p className='text-sm text-muted-foreground'>
-                    Building the future of health insights at Cambrean. 
-                </p>
                 <p className='text-sm text-muted-foreground'>
                     <a href='mailto:me@davidsloane.xyz' className='text-sm cursor-pointer transition-opacity duration-150 hover:opacity-25'>
                         me@davidsloane.xyz
