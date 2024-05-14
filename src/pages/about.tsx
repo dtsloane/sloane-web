@@ -8,7 +8,7 @@ const About = () => {
                 <h4 className="text-md font-medium">About</h4>
                 <p className="text-sm text-muted-foreground">
                   Designer, Builder, Founder. 
-                  Wasn't too bad at kicking a football around too. 
+                  Wasn&apos;t too bad at kicking a football around too. 
                 </p>
             </div>
             <Separator className='w-5 mt-8'/>
