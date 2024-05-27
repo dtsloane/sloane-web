@@ -3,7 +3,7 @@ import { Separator } from "@/components/ui/separator";
 
 const About: React.FC = () => {
     return (
-        <div className="flex flex-col items-center p-8 md:p-32 min-h-screen">
+        <div className="flex flex-row items-start justify-center p-8 md:p-32 h-screen">
             <div className="flex flex-col space-y-8 text-left max-w-lg w-full">
                 {/* Header Section */}
                 <header className="space-y-2">
