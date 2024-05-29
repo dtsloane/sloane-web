@@ -3,7 +3,7 @@ import { Separator } from "@/components/ui/separator";
 
 const About: React.FC = () => {
     return (
-        <div className="flex flex-row items-start justify-center p-8 md:p-32 h-screen">
+        <div className="flex flex-row items-start justify-center p-8 md:p-32 min-h-screen">
             <div className="flex flex-col space-y-8 text-left max-w-lg w-full">
                 {/* Header Section */}
                 <header className="space-y-2">
@@ -16,7 +16,7 @@ const About: React.FC = () => {
                     <div className="timeline space-y-6">
                         <div className="timeline-item">
                             <span className="text-sm">2002 </span>
-                            <p className="text-sm text-muted-foreground"> - birth.</p>
+                            <p className="text-sm text-muted-foreground"> - 🚼 birth.</p>
                         </div>
                         <div className="timeline-item">
                             <span className="text-sm">2011 - 2012 </span>
@@ -24,15 +24,15 @@ const About: React.FC = () => {
                         </div>
                         <div className="timeline-item">
                             <span className="text-sm">2013 - 2014 </span>
-                            <p className="text-sm text-muted-foreground"> - jailbroke my green iPhone 5c. Fell in love. </p>
+                            <p className="text-sm text-muted-foreground"> - jailbroke my green 📱iPhone 5c. Fell into rabbit holes.  </p>
                         </div>
                         <div className="timeline-item">
                             <span className="text-sm">2014 - 2015 </span>
-                            <p className="text-sm text-muted-foreground"> - started building a YouTube channel on Jailbreaking, learned about 'entrepreneurship' because of Google Adsense.</p>
+                            <p className="text-sm text-muted-foreground"> - started building a YouTube channel on Jailbreaking, Google Adsense was my.</p>
                         </div>
                         <div className="timeline-item">
                             <span className="text-sm">2015 - 2016 </span>
-                            <p className="text-sm text-muted-foreground"> - learned photoshop, final cut pro, audio / film and slowly shifted toward design.</p>
+                            <p className="text-sm text-muted-foreground"> - learned photoshop, 🎥 final cut pro, audio / film and slowly shifted toward design 🖼️.</p>
                         </div>
                         <div className="timeline-item">
                             <span className="text-sm">2019 - 2020 </span>
@@ -40,11 +40,11 @@ const About: React.FC = () => {
                         </div>
                         <div className="timeline-item">
                             <span className="text-sm">2020 - 2021 </span>
-                            <p className="text-sm text-muted-foreground"> - played more football, read a lot of books, studied, wrote exams & started swift development again.</p>
+                            <p className="text-sm text-muted-foreground"> - played more football ⚽️, read a lot of books, studied, wrote exams & started swift development again.</p>
                         </div>
                         <div className="timeline-item">
                             <span className="text-sm">2021 - 2022 </span>
-                            <p className="text-sm text-muted-foreground"> - started a company, deferred my computer science spot in college, went to work.</p>
+                            <p className="text-sm text-muted-foreground"> - started a company, deferred my computer science spot in college 🎓, went to work.</p>
                         </div>
                         <div className="timeline-item">
                             <span className="text-sm">2022 - now </span>
