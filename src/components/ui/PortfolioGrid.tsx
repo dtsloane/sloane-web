@@ -25,7 +25,7 @@ const PortfolioGrid: React.FC = () => {
 
   return (
     <div className="relative">
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8 p-6">
+      <div className="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 p-6">
         {items.map((item, index) => (
           <div key={index} className="relative group cursor-pointer" onClick={() => openModal(item)}>
             <div className="relative w-full h-0 pb-[75%] overflow-hidden">
