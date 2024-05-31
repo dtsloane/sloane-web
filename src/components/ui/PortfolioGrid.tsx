@@ -3,13 +3,13 @@ import React, { useState } from 'react';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 
 const items = [
+  { type: 'image', src: "/portfolio/workouts-thumbnail.png", title: "Workouts Thumbnail", year: "2019" },
   { type: 'image', src: "/portfolio/HRV baselines.png", title: "HRV Baselines", year: "2023" },
   { type: 'image', src: "/portfolio/influences-marketing.png", title: "Influences Marketing", year: "2022" },
   { type: 'image', src: "/portfolio/linkedin-polish.post.png", title: "LinkedIn Polish Post", year: "2021" },
   { type: 'image', src: "/portfolio/tags-simple.png", title: "Tags Simple", year: "2020" },
-  { type: 'image', src: "/portfolio/workouts-thumbnail.png", title: "Workouts Thumbnail", year: "2019" },
-  { type: 'video', src: "/portfolio/sample-video.mp4", title: "Sample Video", year: "2018" },
-  { type: 'twitter', id: '1699101383629443306', title: "Twitter Video", year: "2017" }
+  { type: 'twitter', id: '1699101383629443306', title: "Twitter Video", year: "2017" },
+  { type: 'video', src: "/portfolio/sample-video.mp4", title: "Sample Video", year: "2018" }
 ];
 
 const PortfolioGrid: React.FC = () => {
