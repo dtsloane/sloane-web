@@ -24,19 +24,19 @@ const About: React.FC = () => {
                         </div>
                         <div className="timeline-item">
                             <span className="text-sm">2013 - 2014 </span>
-                            <p className="text-sm text-muted-foreground"> - jailbroke my green 📱iPhone 5c. Fell into rabbit holes.  </p>
+                            <p className="text-sm text-muted-foreground"> - jailbroke my green 📱iPhone 5c and spent years down rabbit holes.  </p>
                         </div>
                         <div className="timeline-item">
                             <span className="text-sm">2014 - 2015 </span>
-                            <p className="text-sm text-muted-foreground"> - started building a YouTube channel on Jailbreaking, Google Adsense was my.</p>
+                            <p className="text-sm text-muted-foreground"> - started building a YouTube channel on Jailbreaking, Google Adsense was my first employer.</p>
                         </div>
                         <div className="timeline-item">
                             <span className="text-sm">2015 - 2016 </span>
-                            <p className="text-sm text-muted-foreground"> - learned photoshop, 🎥 final cut pro, audio / film and slowly shifted toward design 🖼️.</p>
+                            <p className="text-sm text-muted-foreground"> - learned photoshop, 🎥 final cut pro, audio / film and slowly gravitated toward design 🖼️.</p>
                         </div>
                         <div className="timeline-item">
                             <span className="text-sm">2019 - 2020 </span>
-                            <p className="text-sm text-muted-foreground"> - played football, painted, read a lot about economics.</p>
+                            <p className="text-sm text-muted-foreground"> - played football, painted & studied economics.</p>
                         </div>
                         <div className="timeline-item">
                             <span className="text-sm">2020 - 2021 </span>
