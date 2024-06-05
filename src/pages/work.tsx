@@ -1,10 +1,29 @@
 import '../app/globals.css';
 import { Separator } from "@/components/ui/separator";
+import {
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
+    BreadcrumbList,
+    BreadcrumbPage,
+    BreadcrumbSeparator,
+  } from "@/components/ui/breadcrumb" ;
 
 const Work = () => {
     return (
         <div className="flex flex-col items-center p-8 md:p-32 min-h-screen">
             <div className="flex flex-col space-y-8 text-left max-w-lg w-full">
+                <Breadcrumb>
+                    <BreadcrumbList>
+                    <BreadcrumbItem>
+                    <BreadcrumbLink href="/">Back</BreadcrumbLink>
+                    </BreadcrumbItem>
+                    <BreadcrumbSeparator />
+                    <BreadcrumbItem>
+                    <BreadcrumbPage>Work</BreadcrumbPage>
+                    </BreadcrumbItem>
+                 </BreadcrumbList>
+                </Breadcrumb>
                 <div className="space-y-2">
                     <h4 className="text-lg md:text-md font-medium">Work</h4>
                     <div className="space-y-4"> {/* Adjusted spacing here */}
