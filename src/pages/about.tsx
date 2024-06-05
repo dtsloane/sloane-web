@@ -24,7 +24,7 @@ const About: React.FC = () => {
                         </div>
                         <div className="timeline-item">
                             <span className="text-sm">2013 - 2014 </span>
-                            <p className="text-sm text-muted-foreground"> - jailbroke my green 📱iPhone 5c and spent years down rabbit holes.  </p>
+                            <p className="text-sm text-muted-foreground"> - jailbroke my green 📱iPhone 5c & started hacking around.  </p>
                         </div>
                         <div className="timeline-item">
                             <span className="text-sm">2014 - 2015 </span>
