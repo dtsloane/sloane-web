@@ -13,6 +13,17 @@ const About: React.FC = () => {
     return (
         <div className="flex flex-row items-start justify-center p-8 md:p-32 min-h-screen">
             <div className="flex flex-col space-y-8 text-left max-w-lg w-full">
+            <Breadcrumb>
+                <BreadcrumbList>
+                    <BreadcrumbItem>
+                    <BreadcrumbLink href="/">Back</BreadcrumbLink>
+                    </BreadcrumbItem>
+                    <BreadcrumbSeparator />
+                    <BreadcrumbItem>
+                    <BreadcrumbPage>About</BreadcrumbPage>
+                    </BreadcrumbItem>
+                </BreadcrumbList>
+            </Breadcrumb>
                 {/* Header Section */}
                 <header className="space-y-2">
                     <h1 className="text-lg md:text-md font-medium">About</h1>
