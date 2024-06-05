@@ -25,11 +25,11 @@ const PortfolioGrid: React.FC = () => {
 
   return (
     <div className="relative">
-      <div className="flex flex-col items-center space-y-8 p-6 overflow-y-auto max-h-screen">
+      <div className="flex flex-col items-center space-y-8 p-6">
         {items.map((item, index) => (
           <div key={index} className="w-full max-w-2xl p-4 text-center">
             <div className="relative group cursor-pointer mt-4" onClick={() => openModal(item)}>
-              <div className="relative w-full h-0 pb-[75%] overflow-hidden rounded-md">
+              <div className="relative w-full max-w-xl h-0 pb-[75%] overflow-hidden rounded-md">
                 {item.type === 'image' ? (
                   <Image
                     alt={`Item ${index + 1}`}
@@ -60,19 +60,20 @@ const PortfolioGrid: React.FC = () => {
 
       {selectedItem && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm" onClick={closeModal}>
-          <div className="relative w-3/4 h-3/4 bg-transparent rounded-lg overflow-hidden" onClick={(e) => e.stopPropagation()}>
-            <button className="absolute top-2 right-2 text-white" onClick={closeModal}>✖</button>
-            <div className="relative w-full h-0 pb-[75%] rounded-md">
+          <div className="relative w-auto max-w-6xl h-auto max-h-screen bg-transparent overflow-auto" onClick={(e) => e.stopPropagation()}>
+            <div className="relative w-full h-full p-4">
               {selectedItem.type === 'image' ? (
                 <Image
                   alt="Selected Item"
-                  className="w-full h-full object-contain"
+                  className="w-auto h-auto max-w-full max-h-screen object-contain"
                   src={selectedItem.src!}
-                  fill
+                  layout="intrinsic"
+                  width={1920}
+                  height={1080}
                 />
               ) : selectedItem.type === 'video' ? (
                 <video
-                  className="w-full h-full object-contain"
+                  className="w-auto h-auto max-w-full max-h-screen object-contain"
                   src={selectedItem.src!}
                   controls
                   autoPlay
