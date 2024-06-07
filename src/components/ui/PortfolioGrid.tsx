@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 
 const items = [
@@ -16,6 +16,7 @@ const items = [
 
 const PortfolioGrid: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState<{ type: string, src?: string, id?: string } | null>(null);
+  const videoRefs = useRef<HTMLVideoElement[]>([]);
 
   const openModal = (item: { type: string, src?: string, id?: string }) => {
     setSelectedItem(item);
@@ -25,13 +26,40 @@ const PortfolioGrid: React.FC = () => {
     setSelectedItem(null);
   };
 
+  useEffect(() => {
+    // Clear video references on unmount
+    return () => {
+      videoRefs.current = [];
+    };
+  }, []);
+
+  const handleMouseEnter = (index: number) => {
+    const videoElement = videoRefs.current[index];
+    if (videoElement) {
+      videoElement.play();
+    }
+  };
+
+  const handleMouseLeave = (index: number) => {
+    const videoElement = videoRefs.current[index];
+    if (videoElement) {
+      videoElement.pause();
+      videoElement.currentTime = 0; // Reset video to start
+    }
+  };
+
   return (
     <div className="relative">
       <div className="flex flex-col items-center space-y-8 p-6">
         {items.map((item, index) => (
           <div key={index} className="w-full max-w-2xl p-4 text-center">
-            <div className="relative group cursor-pointer mt-4" onClick={() => openModal(item)}>
-              <div className="relative w-full max-w-xl h-0 pb-[75%] overflow-hidden rounded-md">
+            <div
+              className="relative group cursor-pointer mt-4"
+              onClick={() => openModal(item)}
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={() => handleMouseLeave(index)}
+            >
+              <div className="relative w-full max-w-xl h-0 pb-[56.25%] overflow-hidden rounded-md">
                 {item.type === 'image' ? (
                   <Image
                     alt={`Item ${index + 1}`}
@@ -41,10 +69,10 @@ const PortfolioGrid: React.FC = () => {
                   />
                 ) : item.type === 'video' ? (
                   <video
+                    ref={(el) => (videoRefs.current[index] = el!)}
                     className="absolute top-0 left-0 w-full h-full object-contain rounded-md transition-transform duration-300 group-hover:scale-105 group-hover:shadow-lg"
                     src={item.src!}
                     muted
-                    loop
                     preload="metadata"
                   />
                 ) : (
