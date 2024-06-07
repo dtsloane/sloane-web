@@ -6,17 +6,21 @@ const items = [
   { type: 'video', src: "/PH Video : Website .mp4", title: "Cambrean Launch", year: "2022" },
   { type: 'video', src: "/New-Website-Video.mp4", title: "Website Launch", year: "2022" },
   { type: 'video', src: "/Workouts Launch.mp4", title: "Workouts Launch", year: "2022" },
-  { type: 'image', src: "/portfolio/Frame 10122776.png", title: "Mobile Graphs", year: "2023" },
-  { type: 'image', src: "/portfolio/Frame 10122756.png", title: "Insights", year: "2023" },
-  { type: 'image', src: "/portfolio/Frame 10122773.png", title: "Screens", year: "2022" },
-  { type: 'image', src: "/portfolio/Frame 10122763.png", title: "Tags", year: "2022" },
-  { type: 'image', src: "/portfolio/workouts-thumbnail.png", title: "Workouts", year: "2022" },
+  { type: 'image', src: "/portfolio/Frame 10122756.png", title: "Mobile Graphs", year: "2023" },
+  { type: 'image', src: "/portfolio/Frame 10122759.png", title: "Insights", year: "2023" },
+  { type: 'image', src: "/portfolio/Frame 10122775.png", title: "Screens", year: "2022" },
+  { type: 'image', src: "/portfolio/Frame 10122762.png", title: "Tags", year: "2022" },
+  { type: 'image', src: "/portfolio/Frame 10122769.png", title: "Workouts", year: "2022" },
+  { type: 'image', src: "/portfolio/Frame 10122766.png", title: "Workouts", year: "2022" },
+  { type: 'image', src: "/portfolio/Frame 10122757.png", title: "Workouts", year: "2022" },
+  { type: 'image', src: "/portfolio/Frame 10122765.png", title: "Workouts", year: "2022" },
+  { type: 'image', src: "/portfolio/Frame 10122773.png", title: "Workouts", year: "2022" },
   { type: 'twitter', id: '1699101383629443306', title: "Twitter Video", year: "2022" }
 ];
 
 const PortfolioGrid: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState<{ type: string, src?: string, id?: string } | null>(null);
-  const videoRefs = useRef<HTMLVideoElement[]>([]);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   const openModal = (item: { type: string, src?: string, id?: string }) => {
     setSelectedItem(item);
@@ -69,7 +73,9 @@ const PortfolioGrid: React.FC = () => {
                   />
                 ) : item.type === 'video' ? (
                   <video
-                    ref={(el) => (videoRefs.current[index] = el!)}
+                    ref={(el) => {
+                      videoRefs.current[index] = el;
+                    }}
                     className="absolute top-0 left-0 w-full h-full object-contain rounded-md transition-transform duration-300 group-hover:scale-105 group-hover:shadow-lg"
                     src={item.src!}
                     muted
