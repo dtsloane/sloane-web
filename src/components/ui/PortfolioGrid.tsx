@@ -6,10 +6,10 @@ const items = [
   { type: 'video', src: "/PH Video : Website .mp4", title: "Cambrean Launch", year: "2022" },
   { type: 'video', src: "/New-Website-Video.mp4", title: "Website Launch", year: "2022" },
   { type: 'video', src: "/Workouts Launch.mp4", title: "Workouts Launch", year: "2022" },
-  { type: 'image', src: "/portfolio/HRV baselines.png", title: "Mobile Graphs", year: "2023" },
-  { type: 'image', src: "/portfolio/influences-marketing.png", title: "Insights", year: "2023" },
-  { type: 'image', src: "/portfolio/linkedin-polish.post.png", title: "Screens", year: "2022" },
-  { type: 'image', src: "/portfolio/tags-simple.png", title: "Tags", year: "2022" },
+  { type: 'image', src: "/portfolio/Frame 10122776.png", title: "Mobile Graphs", year: "2023" },
+  { type: 'image', src: "/portfolio/Frame 10122756.png", title: "Insights", year: "2023" },
+  { type: 'image', src: "/portfolio/Frame 10122773.png", title: "Screens", year: "2022" },
+  { type: 'image', src: "/portfolio/Frame 10122763.png", title: "Tags", year: "2022" },
   { type: 'image', src: "/portfolio/workouts-thumbnail.png", title: "Workouts", year: "2022" },
   { type: 'twitter', id: '1699101383629443306', title: "Twitter Video", year: "2022" }
 ];
