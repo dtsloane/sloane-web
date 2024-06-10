@@ -56,18 +56,18 @@ const PortfolioGrid: React.FC = () => {
     <div className="relative">
       <div className="flex flex-col items-center space-y-8 p-6">
         {items.map((item, index) => (
-          <div key={index} className="w-full max-w-2xl p-4 text-center">
+          <div key={index} className="w-full max-w-3xl p-4 text-left"> {/* Increased max-w */}
             <div
               className="relative group cursor-pointer mt-4"
               onClick={() => openModal(item)}
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={() => handleMouseLeave(index)}
             >
-              <div className="relative w-full max-w-xl h-0 pb-[56.25%] overflow-hidden rounded-md">
+              <div className={`relative w-full h-0 ${item.type === 'image' ? 'pb-[95%]' : 'pb-[56.25%]'} overflow-hidden rounded-md`}> {/* Adjusted pb */}
                 {item.type === 'image' ? (
                   <Image
                     alt={`Item ${index + 1}`}
-                    className="absolute top-0 left-0 w-full h-full object-contain rounded-md transition-transform duration-300 group-hover:scale-105 group-hover:shadow-lg"
+                    className="absolute top-0 left-0 w-full h-full object-cover rounded-md transition-transform duration-300 group-hover:scale-105 group-hover:shadow-lg"
                     src={item.src!}
                     fill
                   />
