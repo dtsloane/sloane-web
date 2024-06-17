@@ -40,9 +40,9 @@ const Work = () => {
                 </div>
                 <div className='space-y-2'>
                     <h4 className="text-md md:text-md font-medium">Recognition</h4>
-                    <p className='text-sm text-muted-foreground'>
-                        30 under 30  
-                    </p>
+                    <a href='https://www.independent.ie/business/irish/30-under-30-young-guns-who-are-shooting-for-the-stars/41045671.html' target='_blank' rel='noopener noreferrer' className='text-sm cursor-pointer transition-opacity duration-150 hover:opacity-25'>
+                        Ireland's 30 under 30  
+                    </a>
                 </div>
             </div>
         </div>
