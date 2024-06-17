@@ -7,7 +7,7 @@ import {
     BreadcrumbList,
     BreadcrumbPage,
     BreadcrumbSeparator,
-  } from "@/components/ui/breadcrumb" ;
+} from "@/components/ui/breadcrumb";
 
 const Work = () => {
     return (
@@ -15,16 +15,16 @@ const Work = () => {
             <div className="flex flex-col space-y-8 text-left max-w-lg w-full">
                 <Breadcrumb>
                     <BreadcrumbList>
-                    <BreadcrumbItem>
-                    <BreadcrumbLink href="/">Back</BreadcrumbLink>
-                    </BreadcrumbItem>
-                    <BreadcrumbSeparator />
-                    <BreadcrumbItem>
-                    <BreadcrumbPage>Work</BreadcrumbPage>
-                    </BreadcrumbItem>
-                 </BreadcrumbList>
+                        <BreadcrumbItem>
+                            <BreadcrumbLink href="/">Back</BreadcrumbLink>
+                        </BreadcrumbItem>
+                        <BreadcrumbSeparator />
+                        <BreadcrumbItem>
+                            <BreadcrumbPage>Work</BreadcrumbPage>
+                        </BreadcrumbItem>
+                    </BreadcrumbList>
                 </Breadcrumb>
-                <div className="space-y-2">
+                <div className="mb-8"> {/* Adjusted margin-bottom here */}
                     <h4 className="text-lg md:text-md font-medium">Work</h4>
                     <div className="space-y-4"> {/* Adjusted spacing here */}
                         <div className="flex items-center space-x-2 mt-4"> {/* Added mt-4 to this div for spacing */}
@@ -37,6 +37,12 @@ const Work = () => {
                             </p>
                         </div>
                     </div>
+                </div>
+                <div className='space-y-2'>
+                    <h4 className="text-md md:text-md font-medium">Recognition</h4>
+                    <p className='text-sm text-muted-foreground'>
+                        Generate better health insights 
+                    </p>
                 </div>
             </div>
         </div>
