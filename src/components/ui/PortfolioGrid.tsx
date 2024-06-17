@@ -14,7 +14,7 @@ const items = [
   { type: 'image', src: "/portfolio/Frame 10122766.png", title: "Insight Proxy", year: "2024" },
   { type: 'image', src: "/portfolio/Frame 10122757.png", title: "Sleep Insights", year: "2023" },
   { type: 'image', src: "/portfolio/Frame 10122765.png", title: "Workouts", year: "2023" },
-  { type: 'image', src: "/portfolio/Frame 10122773.png", title: "Component", year: "2022" },
+  { type: 'image', src: "/portfolio/Frame 10122774.png", title: "Component", year: "2023" },
   { type: 'twitter', id: '1699101383629443306', title: "Twitter Video", year: "2022" }
 ];
 
