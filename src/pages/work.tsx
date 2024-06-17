@@ -41,7 +41,7 @@ const Work = () => {
                 <div className='space-y-2'>
                     <h4 className="text-md md:text-md font-medium">Recognition</h4>
                     <p className='text-sm text-muted-foreground'>
-                        Generate better health insights 
+                        30 under 30  
                     </p>
                 </div>
             </div>
