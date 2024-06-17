@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import React, { useState, useRef, useEffect } from 'react';
-import { TwitterTweetEmbed } from 'react-twitter-embed';
 
 const items = [
   { type: 'video', src: "/PH Video : Website .mp4", title: "iOS Beta Launch", year: "2022" },
@@ -14,15 +13,14 @@ const items = [
   { type: 'image', src: "/portfolio/Frame 10122766.png", title: "Insight Proxy", year: "2024" },
   { type: 'image', src: "/portfolio/Frame 10122757.png", title: "Sleep Insights", year: "2023" },
   { type: 'image', src: "/portfolio/Frame 10122765.png", title: "Workouts", year: "2023" },
-  { type: 'image', src: "/portfolio/Frame 10122774.png", title: "Component", year: "2023" },
-  { type: 'twitter', id: '1699101383629443306', title: "Twitter Video", year: "2022" }
+  { type: 'image', src: "/portfolio/Frame 10122774.png", title: "Component", year: "2023" }
 ];
 
 const PortfolioGrid: React.FC = () => {
-  const [selectedItem, setSelectedItem] = useState<{ type: string, src?: string, id?: string } | null>(null);
+  const [selectedItem, setSelectedItem] = useState<{ type: string, src?: string } | null>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
-  const openModal = (item: { type: string, src?: string, id?: string }) => {
+  const openModal = (item: { type: string, src?: string }) => {
     setSelectedItem(item);
   };
 
@@ -81,11 +79,7 @@ const PortfolioGrid: React.FC = () => {
                     muted
                     preload="metadata"
                   />
-                ) : (
-                  <div className="absolute top-0 left-0 w-full h-full rounded-md">
-                    <TwitterTweetEmbed tweetId={item.id!} />
-                  </div>
-                )}
+                ) : null}
               </div>
             </div>
             <h3 className="text-sm text-gray-400 font-medium mt-2">{item.title}</h3>
@@ -117,9 +111,7 @@ const PortfolioGrid: React.FC = () => {
                   <source src={selectedItem.src!} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
-              ) : (
-                <TwitterTweetEmbed tweetId={selectedItem.id!} />
-              )}
+              ) : null}
             </div>
           </div>
         </div>
