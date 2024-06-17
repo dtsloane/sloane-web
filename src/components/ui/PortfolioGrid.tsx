@@ -3,18 +3,18 @@ import React, { useState, useRef, useEffect } from 'react';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 
 const items = [
-  { type: 'video', src: "/PH Video : Website .mp4", title: "Cambrean Launch", year: "2022" },
-  { type: 'video', src: "/New-Website-Video.mp4", title: "Website Launch", year: "2022" },
-  { type: 'video', src: "/Workouts Launch.mp4", title: "Workouts Launch", year: "2022" },
-  { type: 'image', src: "/portfolio/Frame 10122756.png", title: "Mobile Graphs", year: "2023" },
-  { type: 'image', src: "/portfolio/Frame 10122759.png", title: "Insights", year: "2023" },
-  { type: 'image', src: "/portfolio/Frame 10122775.png", title: "Screens", year: "2022" },
-  { type: 'image', src: "/portfolio/Frame 10122762.png", title: "Tags", year: "2022" },
+  { type: 'video', src: "/PH Video : Website .mp4", title: "iOS Beta Launch", year: "2022" },
+  { type: 'video', src: "/New-Website-Video.mp4", title: "Website", year: "2022" },
+  { type: 'video', src: "/Workouts Launch.mp4", title: "Workouts", year: "2022" },
+  { type: 'image', src: "/portfolio/Frame 10122756.png", title: "Apple Health Integration", year: "2023" },
+  { type: 'image', src: "/portfolio/Frame 10122759.png", title: "Platform", year: "2024" },
+  { type: 'image', src: "/portfolio/Frame 10122775.png", title: "Components", year: "2022" },
+  { type: 'image', src: "/portfolio/Frame 10122762.png", title: "Insights", year: "2023" },
   { type: 'image', src: "/portfolio/Frame 10122769.png", title: "Workouts", year: "2022" },
-  { type: 'image', src: "/portfolio/Frame 10122766.png", title: "Workouts", year: "2022" },
-  { type: 'image', src: "/portfolio/Frame 10122757.png", title: "Workouts", year: "2022" },
-  { type: 'image', src: "/portfolio/Frame 10122765.png", title: "Workouts", year: "2022" },
-  { type: 'image', src: "/portfolio/Frame 10122773.png", title: "Workouts", year: "2022" },
+  { type: 'image', src: "/portfolio/Frame 10122766.png", title: "Insight Proxy", year: "2024" },
+  { type: 'image', src: "/portfolio/Frame 10122757.png", title: "Sleep Insights", year: "2023" },
+  { type: 'image', src: "/portfolio/Frame 10122765.png", title: "Workouts", year: "2023" },
+  { type: 'image', src: "/portfolio/Frame 10122773.png", title: "Component", year: "2022" },
   { type: 'twitter', id: '1699101383629443306', title: "Twitter Video", year: "2022" }
 ];
 
