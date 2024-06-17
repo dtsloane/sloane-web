@@ -31,7 +31,7 @@ export default function Home() {
       </div>
       <div className="ml-4 md:ml-64 mt-0 flex-shrink-0 w-[100px] h-[100px] border-2 border-slate-300 relative">
         <Image
-          src="/david.profile  copy.jpeg"
+          src="/profile-pics/david.profile  copy.jpeg"
           alt="Profile Picture"
           layout="fill"
           style={{ objectFit: 'cover', width: '100%', height: '100%' }}
