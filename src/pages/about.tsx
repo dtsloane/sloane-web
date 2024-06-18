@@ -73,14 +73,30 @@ const About: React.FC = () => {
                 </section>
 
                 {/* Body Section */}
-                <section className="space-y-6">
+                <section className="space-y-2">
                     <h4 className='text-lg font-medium'>Contact</h4>
                     <p className="text-sm text-muted-foreground">
                         <a href="mailto:me@davidsloane.xyz" className="text-sm cursor-pointer transition-opacity duration-150 hover:opacity-25">
                             me@davidsloane.xyz
                         </a>
                     </p>
+                    <p className="text-sm text-muted-foreground">
+                        <a href="https://github.com/dtsloane" className="text-sm cursor-pointer transition-opacity duration-150 hover:opacity-25">
+                            Github
+                        </a>
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                        <a href="https://x.com/sloanerdog" className="text-sm cursor-pointer transition-opacity duration-150 hover:opacity-25">
+                            X
+                        </a>
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                        <a href="https://www.linkedin.com/in/dtsloane/" className="text-sm cursor-pointer transition-opacity duration-150 hover:opacity-25">
+                            LinkedIn
+                        </a>
+                    </p>
                 </section>
+
             </div>
         </div>
     );
