@@ -7,7 +7,6 @@ import {
     BreadcrumbPage,
     BreadcrumbSeparator,
   } from "@/components/ui/breadcrumb"  
-import { Separator } from "@/components/ui/separator";
 
 const About: React.FC = () => {
     return (
@@ -73,7 +72,8 @@ const About: React.FC = () => {
                 </section>
 
                 {/* Body Section */}
-                <section className="space-y-2">
+                <section className="space-y-8">
+                    <div className='space-y-2'>
                     <h4 className='text-lg font-medium'>Contact</h4>
                     <p className="text-sm text-muted-foreground">
                         <a href="mailto:me@davidsloane.xyz" className="text-sm cursor-pointer transition-opacity duration-150 hover:opacity-25">
@@ -95,8 +95,8 @@ const About: React.FC = () => {
                             LinkedIn
                         </a>
                     </p>
+                    </div>
                 </section>
-
             </div>
         </div>
     );
