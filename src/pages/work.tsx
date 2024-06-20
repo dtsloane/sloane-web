@@ -1,5 +1,4 @@
 import '../app/globals.css';
-import { Separator } from "@/components/ui/separator";
 import {
     Breadcrumb,
     BreadcrumbItem,
