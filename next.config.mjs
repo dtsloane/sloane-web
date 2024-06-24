@@ -8,7 +8,8 @@ const nextConfig = withMDX({
 
   // Image configuration
   images: {
-    domains: ['img.wook.pt'], // Add external domains here
+    domains: ['img.wook.pt', 'img3.od-cdn.com'], // Add external domains here
+
   },
 
   // Other Next.js config options can go here
