@@ -44,38 +44,51 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
       <ScrollArea className="w-full whitespace-nowrap overflow-hidden">
         <div ref={scrollContainerRef} className="flex space-x-4 p-4">
           {books.map((book, index) => (
-            <div
+            <button
               key={book.slug}
-              className={`flex-shrink-0 w-10 h-48 cursor-pointer transition-transform duration-300 ${
-                activeBook === index ? 'w-32' : 'hover:w-12'
-              }`}
               onClick={() => {
-                setActiveBook(index);
+                setActiveBook(index === activeBook ? null : index);
                 router.push(`?slug=${book.slug}`);
               }}
-              tabIndex={0}
-              role="button"
-              aria-pressed={activeBook === index}
+              className={`relative h-48 transition-width duration-300 ${
+                activeBook === index ? 'w-40' : 'w-12 hover:w-14'
+              }`}
+              style={{
+                perspective: '1000px',
+                transformStyle: 'preserve-3d',
+                transform: `translateX(${activeBook === index ? '-20px' : '0px'})`,
+              }}
             >
-              <div className="relative w-full h-full transition-transform duration-700 transform-style-3d">
-                {/* Book Spine */}
-                <div className={`absolute inset-0 flex items-center justify-center transform transition-transform duration-700 ${activeBook === index ? 'rotate-y-180' : ''}`}>
-                  <div className="absolute inset-0 flex items-center justify-center p-2 bg-gray-300" style={{ backgroundColor: book.spineColor, color: book.textColor }}>
-                    <p className="text-sm text-center vertical-rl">{book.title}</p>
-                  </div>
-                </div>
-                {/* Front Cover */}
-                <div className={`absolute inset-0 backface-hidden transform rotate-y-180 bg-gray-100 ${activeBook === index ? 'rotate-y-0' : 'hidden'}`}>
-                  <Image
-                    src={book.coverImage}
-                    alt={book.title}
-                    layout="fill"
-                    objectFit="cover"
-                    className="rounded-md"
-                  />
-                </div>
+              {/* Book Spine */}
+              <div
+                className={`absolute inset-0 flex items-center justify-center transition-transform duration-500`}
+                style={{
+                  backgroundColor: book.spineColor,
+                  color: book.textColor,
+                  transform: `rotateY(${activeBook === index ? '-180deg' : '0deg'})`,
+                  transformStyle: 'preserve-3d',
+                  backfaceVisibility: 'hidden',
+                }}
+              >
+                <p className="text-sm text-center vertical-rl">{book.title}</p>
               </div>
-            </div>
+              {/* Front Cover */}
+              <div
+                className={`absolute inset-0 transition-transform duration-500`}
+                style={{
+                  transform: `rotateY(${activeBook === index ? '0deg' : '180deg'})`,
+                  transformStyle: 'preserve-3d',
+                  backfaceVisibility: 'hidden',
+                }}
+              >
+                <Image
+                  src={book.coverImage}
+                  alt={book.title}
+                  fill
+                  className="rounded-md object-cover"
+                />
+              </div>
+            </button>
           ))}
         </div>
         <ScrollBar orientation="horizontal" />

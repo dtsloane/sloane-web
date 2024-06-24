@@ -116,13 +116,8 @@ code {
   transform-style: preserve-3d;
 }
 
-.rotate-y-180 {
-  transform: rotateY(180deg);
-}
-
-.hidden {
-  visibility: hidden;
-  opacity: 0;
+.rotate-y-120 {
+  transform: rotateY(120deg);
 }
 
 .flex-shrink-0 {
@@ -145,4 +140,5 @@ code {
 .vertical-rl {
   writing-mode: vertical-rl;
   text-orientation: mixed;
+  transform: rotate(180deg);
 }

@@ -5,22 +5,16 @@ import { getAllBooks } from '../lib/books';
 import { Book } from '@/lib/books';
 import '../app/globals.css';
 
+
 interface BooksPageProps {
   books: Book[];
 }
 
 export const getStaticProps: GetStaticProps = async () => {
   const books = await getAllBooks();
-
-  // Ensure `link` is not undefined
-  const filteredBooks = books.map(book => ({
-    ...book,
-    link: book.link || null, // Set link to null if undefined
-  }));
-
   return {
     props: {
-      books: filteredBooks,
+      books,
     },
   };
 };
