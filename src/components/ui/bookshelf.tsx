@@ -61,24 +61,37 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
             >
               {/* Book Spine */}
               <div
-                className={`absolute inset-0 flex items-center justify-center transition-transform duration-500`}
+                className={`absolute inset-0 flex items-center justify-center transition-transform duration-500 shadow-md`}
                 style={{
                   backgroundColor: book.spineColor,
                   color: book.textColor,
                   transform: `rotateY(${activeBook === index ? '-180deg' : '0deg'})`,
                   transformStyle: 'preserve-3d',
                   backfaceVisibility: 'hidden',
+                  filter: 'brightness(0.8) contrast(1.2)',
                 }}
               >
                 <p className="text-sm text-center vertical-rl">{book.title}</p>
+                <span
+                  className="absolute inset-0"
+                  style={{
+                    pointerEvents: "none",
+                    zIndex: 50,
+                    height: '100%',
+                    width: '100%',
+                    opacity: 0.4,
+                    filter: "url(#paper-texture)",
+                  }}
+                />
               </div>
               {/* Front Cover */}
               <div
-                className={`absolute inset-0 transition-transform duration-500`}
+                className={`absolute inset-0 transition-transform duration-500 shadow-md`}
                 style={{
                   transform: `rotateY(${activeBook === index ? '0deg' : '180deg'})`,
                   transformStyle: 'preserve-3d',
                   backfaceVisibility: 'hidden',
+                  filter: 'brightness(0.8) contrast(1.2)',
                 }}
               >
                 <Image
@@ -86,6 +99,17 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
                   alt={book.title}
                   fill
                   className="rounded-md object-cover"
+                />
+                <span
+                  className="absolute inset-0"
+                  style={{
+                    pointerEvents: "none",
+                    zIndex: 50,
+                    height: '100%',
+                    width: '100%',
+                    opacity: 0.4,
+                    filter: "url(#paper-texture)",
+                  }}
                 />
               </div>
             </button>
