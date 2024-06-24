@@ -107,6 +107,7 @@ code {
   height: 100%;
   object-fit: cover;
 }
+/* Styles for 3D effect and spine */
 .backface-hidden {
   backface-visibility: hidden;
 }
@@ -119,6 +120,29 @@ code {
   transform: rotateY(180deg);
 }
 
-.rotate-y-360 {
-  transform: rotateY(360deg);
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.flex-shrink-0 {
+  transition: width 0.3s ease;
+}
+
+.hover\:w-12:hover {
+  width: 3rem; /* Adjust the width for hover effect */
+}
+
+.w-10 {
+  width: 2.5rem; /* Adjust the width for the spine */
+}
+
+.w-32 {
+  width: 8rem; /* Adjust the width for the cover */
+}
+
+/* Vertical text for the book spine */
+.vertical-rl {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
 }

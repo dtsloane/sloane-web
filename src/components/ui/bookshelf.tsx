@@ -46,8 +46,8 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
           {books.map((book, index) => (
             <div
               key={book.slug}
-              className={`flex-shrink-0 w-32 h-48 cursor-pointer transition-transform duration-300 transform-style-3d ${
-                activeBook === index ? 'rotate-y-180' : ''
+              className={`flex-shrink-0 w-10 h-48 cursor-pointer transition-transform duration-300 ${
+                activeBook === index ? 'w-32' : 'hover:w-12'
               }`}
               onClick={() => {
                 setActiveBook(index);
@@ -57,8 +57,15 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
               role="button"
               aria-pressed={activeBook === index}
             >
-              <div className="relative w-full h-full">
-                <div className={`absolute inset-0 backface-hidden transform transition-transform duration-700 ${activeBook === index ? 'rotate-y-180' : ''}`}>
+              <div className="relative w-full h-full transition-transform duration-700 transform-style-3d">
+                {/* Book Spine */}
+                <div className={`absolute inset-0 flex items-center justify-center transform transition-transform duration-700 ${activeBook === index ? 'rotate-y-180' : ''}`}>
+                  <div className="absolute inset-0 flex items-center justify-center p-2 bg-gray-300" style={{ backgroundColor: book.spineColor, color: book.textColor }}>
+                    <p className="text-sm text-center vertical-rl">{book.title}</p>
+                  </div>
+                </div>
+                {/* Front Cover */}
+                <div className={`absolute inset-0 backface-hidden transform rotate-y-180 bg-gray-100 ${activeBook === index ? 'rotate-y-0' : 'hidden'}`}>
                   <Image
                     src={book.coverImage}
                     alt={book.title}
@@ -66,9 +73,6 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
                     objectFit="cover"
                     className="rounded-md"
                   />
-                </div>
-                <div className={`absolute inset-0 backface-hidden transform rotate-y-180 bg-gray-200 flex items-center justify-center p-2 transition-transform duration-700 ${activeBook === index ? 'rotate-y-360' : ''}`}>
-                  <p className="text-sm text-center">{book.title}</p>
                 </div>
               </div>
             </div>
