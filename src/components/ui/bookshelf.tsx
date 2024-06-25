@@ -19,6 +19,7 @@ interface BookshelfProps {
 
 const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
   const [bookIndex, setBookIndex] = useState<number | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isScrolling, setIsScrolling] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
@@ -28,7 +29,7 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
       setIsScrolling(true);
       const scrollAmount = direction === 'left' ? -200 : 200;
       scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-      setTimeout(() => setIsScrolling(false), 200); // Adjust delay as needed
+      setTimeout(() => setIsScrolling(false), 200);
     }
   };
 
@@ -68,6 +69,8 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
                   setBookIndex(index);
                 }
               }}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
               style={{
                 display: "flex",
                 flexDirection: "row",
@@ -85,7 +88,7 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
               }}
             >
               <div
-                className="relative flex items-start justify-center overflow-hidden"
+                className="relative flex items-center justify-center overflow-hidden"
                 style={{
                   width: spineWidth,
                   height: bookHeight,
@@ -93,8 +96,15 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
                   transformOrigin: "right",
                   backgroundColor: book.spineColor,
                   color: book.textColor,
-                  transform: `translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(${bookIndex === index ? "-60deg" : "0deg"}) rotateZ(0deg) skew(0deg, 0deg)`,
-                  transition: "all 500ms ease",
+                  transform: `
+                    translate3d(0px, 0px, 0px) 
+                    scale3d(${hoveredIndex === index && bookIndex !== index ? 1.05 : 1}, ${hoveredIndex === index && bookIndex !== index ? 1.05 : 1}, 1) 
+                    rotateX(0deg) 
+                    rotateY(${bookIndex === index ? "-60deg" : "0deg"}) 
+                    rotateZ(0deg) 
+                    skew(0deg, 0deg)
+                  `,
+                  transition: "all 300ms ease",
                   willChange: "auto",
                   filter: "brightness(0.8) contrast(1.5)",
                   transformStyle: "preserve-3d",
