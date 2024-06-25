@@ -85,7 +85,7 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
               }}
             >
               <div
-                className="flex items-start justify-center"
+                className="relative flex items-start justify-center overflow-hidden"
                 style={{
                   width: spineWidth,
                   height: bookHeight,
@@ -100,14 +100,14 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
                   transformStyle: "preserve-3d",
                 }}
               >
-                <div className="absolute inset-0" style={{ filter: 'url(#paper-texture)', opacity: 0.4 }} />
+                <div className="absolute inset-0" style={{ filter: 'url(#paper-texture)', opacity: 0.4, width: '100%', height: '100%' }} />
                 <p className="text-sm font-bold whitespace-nowrap" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
                   {book.title}
                 </p>
               </div>
 
               <div
-                className="absolute inset-0 transition-all duration-500 overflow-hidden"
+                className="absolute inset-0 transition-all duration-400 overflow-hidden"
                 style={{
                   transform: bookIndex === index ? 'rotateY(0deg) translateX(40px)' : 'rotateY(90deg) translateX(40px)',
                   opacity: bookIndex === index ? 1 : 0,
@@ -117,7 +117,7 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
                   zIndex: bookIndex === index ? 2 : 0,
                 }}
               >
-                <div className="absolute inset-0 overflow-hidden" style={{ filter: 'url(#paper-texture)', opacity: 0.4 }} />
+                <div className="absolute inset-0 overflow-hidden" style={{ filter: 'url(#paper-texture)', opacity: 0.4, width: '100%', height: '100%' }} />
                 <div 
                   className="absolute inset-0" 
                   style={{ 
