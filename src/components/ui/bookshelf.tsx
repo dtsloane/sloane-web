@@ -96,11 +96,11 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
                   transform: `translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(${bookIndex === index ? "-60deg" : "0deg"}) rotateZ(0deg) skew(0deg, 0deg)`,
                   transition: "all 500ms ease",
                   willChange: "auto",
-                  filter: "brightness(0.8) contrast(2)",
+                  filter: "brightness(0.8) contrast(1.5)",
                   transformStyle: "preserve-3d",
                 }}
               >
-                <div className="absolute inset-0" style={{ filter: 'url(#paper-texture)', opacity: 0.4, width: '100%', height: '100%' }} />
+                <div className="absolute inset-0" style={{ filter: 'url(#paper-texture)', opacity: 0.2, width: '100%', height: '100%' }} />
                 <p className="text-sm font-bold whitespace-nowrap" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
                   {book.title}
                 </p>
@@ -117,7 +117,7 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
                   zIndex: bookIndex === index ? 2 : 0,
                 }}
               >
-                <div className="absolute inset-0 overflow-hidden" style={{ filter: 'url(#paper-texture)', opacity: 0.4, width: '100%', height: '100%' }} />
+                <div className="absolute inset-0" style={{ filter: 'url(#paper-texture)', opacity: 0.25, width: '100%', height: '100%', zIndex: 1 }} />
                 <div 
                   className="absolute inset-0" 
                   style={{ 
