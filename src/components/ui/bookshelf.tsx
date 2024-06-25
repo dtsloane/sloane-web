@@ -24,7 +24,8 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
 
   const scrollTo = useCallback((direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
-      const scrollAmount = direction === 'left' ? -200 : 200;
+      const containerWidth = scrollContainerRef.current.clientWidth;
+      const scrollAmount = direction === 'left' ? -containerWidth / 2 : containerWidth / 2;
       scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   }, []);
@@ -41,8 +42,8 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
         <ChevronLeft className="h-4 w-4" />
       </Button>
       
-      <ScrollArea className="w-full whitespace-nowrap overflow-hidden">
-        <div ref={scrollContainerRef} className="flex space-x-4 p-4">
+      <ScrollArea className="w-full overflow-x-auto">
+        <div ref={scrollContainerRef} className="flex space-x-4 p-4 min-w-max">
           {books.map((book, index) => (
             <button
               key={book.slug}
@@ -50,66 +51,49 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
                 setActiveBook(index === activeBook ? null : index);
                 router.push(`?slug=${book.slug}`);
               }}
-              className={`relative h-48 transition-width duration-300 ${
-                activeBook === index ? 'w-40' : 'w-12 hover:w-14'
+              className={`relative transition-all duration-500 ${
+                activeBook === index ? 'w-[248px] h-[300px]' : 'w-[48px] h-[300px]'
               }`}
               style={{
                 perspective: '1000px',
                 transformStyle: 'preserve-3d',
-                transform: `translateX(${activeBook === index ? '-20px' : '0px'})`,
               }}
             >
               {/* Book Spine */}
               <div
-                className={`absolute inset-0 flex items-center justify-center transition-transform duration-500 shadow-md`}
+                className="absolute inset-0 flex items-center justify-center transition-all duration-500 shadow-md"
                 style={{
                   backgroundColor: book.spineColor,
                   color: book.textColor,
-                  transform: `rotateY(${activeBook === index ? '-180deg' : '0deg'})`,
-                  transformStyle: 'preserve-3d',
+                  transform: activeBook === index ? `rotateY(-30deg) translateX(24px)` : `rotateY(0deg)`,
+                  transformOrigin: "left",
                   backfaceVisibility: 'hidden',
-                  filter: 'brightness(0.8) contrast(1.2)',
+                  width: '48px',
+                  height: '100%',
+                  zIndex: activeBook === index ? 1 : 0,
                 }}
               >
-                <p className="text-sm text-center vertical-rl">{book.title}</p>
-                <span
-                  className="absolute inset-0"
-                  style={{
-                    pointerEvents: "none",
-                    zIndex: 50,
-                    height: '100%',
-                    width: '100%',
-                    opacity: 0.4,
-                    filter: "url(#paper-texture)",
-                  }}
-                />
+                <p className="text-sm font-bold whitespace-nowrap" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>{book.title}</p>
               </div>
               {/* Front Cover */}
               <div
-                className={`absolute inset-0 transition-transform duration-500 shadow-md`}
+                className="absolute inset-0 transition-all duration-500"
                 style={{
-                  transform: `rotateY(${activeBook === index ? '0deg' : '180deg'})`,
-                  transformStyle: 'preserve-3d',
+                  transform: activeBook === index 
+                    ? `rotateY(0deg) translateX(24px)` 
+                    : `rotateY(-90deg) translateX(0)`,
+                  transformOrigin: "left",
                   backfaceVisibility: 'hidden',
-                  filter: 'brightness(0.8) contrast(1.2)',
+                  width: '200px',
+                  height: '100%',
+                  zIndex: activeBook === index ? 2 : 0,
                 }}
               >
                 <Image
                   src={book.coverImage}
                   alt={book.title}
-                  fill
+                  layout="fill"
                   className="rounded-md object-cover"
-                />
-                <span
-                  className="absolute inset-0"
-                  style={{
-                    pointerEvents: "none",
-                    zIndex: 50,
-                    height: '100%',
-                    width: '100%',
-                    opacity: 0.4,
-                    filter: "url(#paper-texture)",
-                  }}
                 />
               </div>
             </button>

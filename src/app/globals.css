@@ -110,7 +110,6 @@ code {
 .vertical-rl {
   writing-mode: vertical-rl;
   text-orientation: mixed;
-  transform: rotate(180deg);
 }
 
 .transition-width {
@@ -137,4 +136,10 @@ code {
 .filter-paper {
   filter: url(#paper-texture);
 }
+/* Book cover and spine styling */
+.book-cover, .book-spine {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
 
