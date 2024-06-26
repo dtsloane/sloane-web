@@ -4,20 +4,14 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from 'next/image';
-
-interface Book {
-  title: string;
-  coverImage: string;
-  spineColor: string;
-  textColor: string;
-  slug: string;
-}
+import { Book } from '../../lib/books'; // Importing the correct Book type
 
 interface BookshelfProps {
   books: Book[];
+  onSelectBook: (book: Book) => void;
 }
 
-const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
+const Bookshelf: React.FC<BookshelfProps> = ({ books, onSelectBook }) => {
   const [bookIndex, setBookIndex] = useState<number | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isScrolling, setIsScrolling] = useState(false);
@@ -67,6 +61,7 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
                   setBookIndex(null);
                 } else {
                   setBookIndex(index);
+                  onSelectBook(book); // Notify parent component of the selected book
                 }
               }}
               onMouseEnter={() => setHoveredIndex(index)}
