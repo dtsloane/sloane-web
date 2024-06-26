@@ -2,7 +2,6 @@ import { GetStaticProps } from 'next';
 import BooksLayout from '../components/ui/books-layout';
 import Bookshelf from '../components/ui/bookshelf';
 import { getAllBooks, Book } from '../lib/books';
-import Image from 'next/image';
 import { useState } from 'react';
 import '../app/globals.css';
 
