@@ -1,8 +1,5 @@
-import React, { useState, useRef } from 'react';
-import { useRouter } from 'next/router';
+import React, { useState, useRef, useEffect } from 'react';
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from 'next/image';
 import { Book } from '../../lib/books'; // Importing the correct Book type
 
@@ -14,22 +11,19 @@ interface BookshelfProps {
 const Bookshelf: React.FC<BookshelfProps> = ({ books, onSelectBook }) => {
   const [bookIndex, setBookIndex] = useState<number | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [isScrolling, setIsScrolling] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
-  const router = useRouter();
-  
-  const scrollTo = (direction: 'left' | 'right') => {
-    if (scrollRef.current) {
-      setIsScrolling(true);
-      const scrollAmount = direction === 'left' ? -200 : 200;
-      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-      setTimeout(() => setIsScrolling(false), 200);
-    }
-  };
 
   const bookWidth = 240;
   const spineWidth = 40;
   const bookHeight = 300;
+
+  // Adjust the width of the scroll area to account for the selected book
+  useEffect(() => {
+    if (scrollRef.current) {
+      const scrollWidth = books.length * spineWidth + (bookIndex !== null ? bookWidth - spineWidth : 0);
+      scrollRef.current.style.width = `${scrollWidth}px`;
+    }
+  }, [bookIndex, books.length]);
 
   return (
     <div className="relative w-full">
@@ -42,15 +36,6 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books, onSelectBook }) => {
         </filter>
       </svg>
 
-      <Button 
-        variant="outline" 
-        size="icon"
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-10"
-        onClick={() => scrollTo('left')}
-      >
-        <ChevronLeft className="h-4 w-4" />
-      </Button>
-      
       <ScrollArea className="w-full">
         <div ref={scrollRef} className="flex space-x-4 p-4">
           {books.map((book, index) => (
@@ -78,7 +63,7 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books, onSelectBook }) => {
                 perspective: "1000px",
                 WebkitPerspective: "1000px",
                 gap: "0px",
-                transition: isScrolling ? `transform 100ms linear` : `all 500ms ease`,
+                transition: `all ${bookIndex === null ? '500ms' : '850ms'} ease`, // Adjusting transition duration
                 willChange: "auto",
               }}
             >
@@ -99,7 +84,7 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books, onSelectBook }) => {
                     rotateZ(0deg) 
                     skew(0deg, 0deg)
                   `,
-                  transition: "all 500ms ease",
+                  transition: "all 850ms ease", // Slow down transition for individual book
                   willChange: "auto",
                   filter: "brightness(0.8) contrast(1.5)",
                   transformStyle: "preserve-3d",
@@ -112,7 +97,7 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books, onSelectBook }) => {
               </div>
 
               <div
-                className="absolute inset-0 transition-all duration-400 overflow-hidden"
+                className="absolute inset-0 transition-all duration-800 overflow-hidden" // Slow down close animation
                 style={{
                   transform: bookIndex === index ? 'rotateY(0deg) translateX(40px)' : 'rotateY(90deg) translateX(40px)',
                   opacity: bookIndex === index ? 1 : 0,
@@ -142,15 +127,6 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books, onSelectBook }) => {
         </div>
         <ScrollBar orientation="horizontal" />
       </ScrollArea>
-
-      <Button 
-        variant="outline" 
-        size="icon"
-        className="absolute right-0 top-1/2 -translate-y-1/2 z-10"
-        onClick={() => scrollTo('right')}
-      >
-        <ChevronRight className="h-4 w-4" />
-      </Button>
     </div>
   );
 }
