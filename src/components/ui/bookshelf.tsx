@@ -63,8 +63,8 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books, onSelectBook }) => {
                 perspective: "1000px",
                 WebkitPerspective: "1000px",
                 gap: "0px",
-                transition: `all ${bookIndex === null ? '500ms' : '850ms'} ease`, // Adjusting transition duration
-                willChange: "auto",
+                transition: `transform 500ms ease, width 500ms ease`, // Only animate transform and width
+                willChange: "transform, width",
               }}
             >
               <div
@@ -84,8 +84,8 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books, onSelectBook }) => {
                     rotateZ(0deg) 
                     skew(0deg, 0deg)
                   `,
-                  transition: "all 850ms ease", // Slow down transition for individual book
-                  willChange: "auto",
+                  transition: "transform 500ms ease", // Only animate transform
+                  willChange: "transform",
                   filter: "brightness(0.8) contrast(1.5)",
                   transformStyle: "preserve-3d",
                 }}
@@ -97,7 +97,7 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books, onSelectBook }) => {
               </div>
 
               <div
-                className="absolute inset-0 transition-all duration-800 overflow-hidden" // Slow down close animation
+                className="absolute inset-0 transition-all duration-300 overflow-hidden" // Adjusted duration for book cover
                 style={{
                   transform: bookIndex === index ? 'rotateY(0deg) translateX(40px)' : 'rotateY(90deg) translateX(40px)',
                   opacity: bookIndex === index ? 1 : 0,
