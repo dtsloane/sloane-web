@@ -28,13 +28,14 @@ const BooksPage: React.FC<BooksPageProps> = ({ books }) => {
 
   return (
     <BooksLayout>
-      <h1 className="text-3xl font-bold mb-6">My Bookshelf</h1>
+      <h1 className="text-3xl font-bold mb-2">My Bookshelf</h1>
+      <p className='text-md text-gray-400 font-medium mb-6'>A collection of cool books</p>
       <Bookshelf books={books} onSelectBook={handleSelectBook} />
       {selectedBook && (
-        <div className="mt-8 p-4 border rounded shadow">
-          <h2 className="text-2xl font-bold mb-2">{selectedBook.title}</h2>
-          <p className="text-lg mb-1">Author: {selectedBook.author}</p>
-          {selectedBook.status && <p className="text-gray-600">Status: {selectedBook.status}</p>}
+        <div className="mt-8 p-4">
+          <h2 className="text-md font-bold mb-2">{selectedBook.title}</h2>
+          <p className="text-sm mb-2">Author: {selectedBook.author}</p>
+          {selectedBook.status && <p className="text-gray-600 text-sm">Status: {selectedBook.status}</p>}
         </div>
       )}
     </BooksLayout>
