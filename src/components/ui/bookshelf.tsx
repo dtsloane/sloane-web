@@ -104,7 +104,7 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
                     rotateZ(0deg) 
                     skew(0deg, 0deg)
                   `,
-                  transition: "all 300ms ease",
+                  transition: "all 500ms ease",
                   willChange: "auto",
                   filter: "brightness(0.8) contrast(1.5)",
                   transformStyle: "preserve-3d",
@@ -127,11 +127,11 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books }) => {
                   zIndex: bookIndex === index ? 2 : 0,
                 }}
               >
-                <div className="absolute inset-0" style={{ filter: 'url(#paper-texture)', opacity: 0.25, width: '100%', height: '100%', zIndex: 1 }} />
+                <div className="absolute inset-0" style={{ filter: 'url(#paper-texture)', opacity: 0.15, width: '100%', height: '100%', zIndex: 1 }} />
                 <div 
                   className="absolute inset-0" 
                   style={{ 
-                    background: 'linear-gradient(to right, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 5%)',
+                    background: 'linear-gradient(to right, rgba(194,194,194,0.3) 0%, rgba(255,255,255,0) 3%)',
                     zIndex: 1 
                   }} 
                 />
