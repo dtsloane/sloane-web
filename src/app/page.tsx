@@ -25,6 +25,11 @@ export default function Home() {
               work
             </p>
           </Link>
+          <Link href="/reading" passHref>
+            <p className="cursor-pointer pt-2 text-sm text-muted-foreground transition-opacity duration-150 hover:opacity-25">
+              reading
+            </p>
+          </Link>
         </div>
       </div>
       <div className="ml-4 md:ml-64 mt-0 flex-shrink-0 w-[100px] h-[100px] border-2 border-slate-300 relative">
