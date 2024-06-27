@@ -74,7 +74,7 @@ const About: React.FC = () => {
                 {/* Body Section */}
                 <section className="space-y-8">
                     <div className='space-y-2'>
-                    <h4 className='text-lg font-medium'>Contact</h4>
+                    <h4 className='text-lg font-medium'>Find me</h4>
                     <p className="text-sm text-muted-foreground">
                         <a href="mailto:me@davidsloane.xyz" className="text-sm cursor-pointer transition-opacity duration-150 hover:opacity-25">
                             me@davidsloane.xyz
