@@ -54,7 +54,7 @@ const Work = () => {
                         </div>
                     </div>
                 </div>
-                <div className='space-y-2'>
+                <div className='space-y-2 pt-8'>
                     <h4 className="text-md md:text-md font-medium">Recognition</h4>
                     <div className='space-y-2'>
                         {recognitionLinks.map((link, index) => (
