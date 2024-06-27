@@ -27,8 +27,8 @@ const BooksPage: React.FC<BooksPageProps> = ({ books }) => {
 
   return (
     <BooksLayout>
-      <h1 className="text-3xl font-bold mb-2">My Bookshelf</h1>
-      <p className='text-md text-gray-400 font-medium mb-6'>A collection of cool books</p>
+      <h1 className="text-lg font-bold mb-2">My Bookshelf</h1>
+      <p className='text-sm text-gray-400 font-medium mb-6'>A collection of cool books</p>
       <Bookshelf books={books} onSelectBook={handleSelectBook} />
       {selectedBook && (
         <div className="mt-8 p-4">
