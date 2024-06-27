@@ -3,6 +3,14 @@ import BooksLayout from '../components/ui/books-layout';
 import Bookshelf from '../components/ui/bookshelf';
 import { getAllBooks, Book } from '../lib/books';
 import { useState } from 'react';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"  
 import '../app/globals.css';
 
 interface BooksPageProps {
@@ -27,7 +35,18 @@ const BooksPage: React.FC<BooksPageProps> = ({ books }) => {
 
   return (
     <BooksLayout>
-      <h1 className="text-lg font-bold mb-2">My Bookshelf</h1>
+      <Breadcrumb>
+          <BreadcrumbList>
+              <BreadcrumbItem>
+              <BreadcrumbLink href="/">Back</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+              <BreadcrumbPage>About</BreadcrumbPage>
+              </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      <h1 className="text-lg font-bold mb-2 pt-8">My Bookshelf</h1>
       <p className='text-sm text-gray-400 font-medium mb-6'>A collection of cool books</p>
       <Bookshelf books={books} onSelectBook={handleSelectBook} />
       {selectedBook && (
