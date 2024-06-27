@@ -32,7 +32,7 @@ export default function Home() {
           </Link>
         </div>
       </div>
-      <div className="ml-4 md:ml-64 mt-0 flex-shrink-0 w-[100px] h-[100px] border-2 border-slate-300 relative">
+      <div className="ml-4 md:ml-64 mt-0 flex-shrink-0 w-[100px] h-[100px] border-2 border-slate-300 relative transition-transform duration-500 hover:scale-105">
         <Image
           src="/profile-pics/david.profile  copy.jpeg"
           alt="Profile Picture"
