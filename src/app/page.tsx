@@ -29,17 +29,17 @@ export default function Home() {
         <p className="text-sm text-muted-foreground">Designer, Founder.</p>
         <div className="pt-8 space-y-2">
           <Link href="/about" passHref>
-            <p className="cursor-pointer text-sm text-muted-foreground hover:text-gray-600 transition-opacity duration-150  hover:bg-gray-100 p-2 rounded-lg space-y-2">
+            <p className="cursor-auto text-sm text-muted-foreground hover:text-gray-600 transition-opacity duration-150  hover:bg-gray-100 p-2 rounded-lg space-y-2">
               about
             </p>
           </Link>
           <Link href="/design" passHref>
-            <p className="cursor-pointer text-sm text-muted-foreground hover:text-gray-600 transition-opacity duration-150  hover:bg-gray-100 p-2 rounded-lg space-y-2">
+            <p className="cursor-auto text-sm text-muted-foreground hover:text-gray-600 transition-opacity duration-150  hover:bg-gray-100 p-2 rounded-lg space-y-2">
               design
             </p>
           </Link>
           <Link href="/reading" passHref>
-            <p className="cursor-pointer text-sm text-muted-foreground hover:text-gray-600 transition-opacity duration-150 hover:bg-gray-100 p-2 rounded-lg space-y-2">
+            <p className="cursor-auto text-sm text-muted-foreground hover:text-gray-600 transition-opacity duration-150 hover:bg-gray-100 p-2 rounded-lg space-y-2">
               reading
             </p>
           </Link>

@@ -63,7 +63,7 @@ const About: React.FC = () => {
                 <div className="mb-8">
                     <h4 className="text-lg md:text-md font-medium">Work</h4>
                     <div className="space-y-4">
-                        <a href="https://cambrean.com" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 mt-4 transition-colors duration-150 hover:bg-gray-100 p-2 rounded-lg">
+                        <a href="https://cambrean.com" target="_blank" rel="noopener noreferrer" className="flex items-center cursor-pointer space-x-4 mt-4 transition-colors duration-150 hover:bg-gray-100 p-2 rounded-lg">
                             <img src="/Cambrean.Logo.png" alt="Cambrean Logo" className="w-7 h-7 rounded-lg transition-transform duration-300 hover:scale-110" />
                             <div className='flex-col'>
                                 <span className="text-sm cursor-pointer">
@@ -85,7 +85,7 @@ const About: React.FC = () => {
                                 href={link.href}
                                 target='_blank'
                                 rel='noopener noreferrer'
-                                className='text-sm text-slate-400 hover:text-slate-500 cursor-pointer transition-colors duration-150 hover:bg-gray-100 p-2 rounded-lg block'
+                                className='text-sm text-slate-400 hover:text-slate-500 cursor-auto transition-colors duration-150 hover:bg-gray-100 p-2 rounded-lg block'
                             >
                                 {link.text}
                             </a>
@@ -141,22 +141,22 @@ const About: React.FC = () => {
                     <h4 className='text-lg font-medium'>Find me</h4>
                     <div className='flex space-x-4 pt-4'>
                         <p className="text-sm text-muted-foreground">
-                            <a href="mailto:me@davidsloane.xyz" className="text-sm cursor-pointer transition-colors duration-150 hover:bg-gray-100 p-2 rounded-md">
+                            <a href="mailto:me@davidsloane.xyz" className="text-sm cursor-auto transition-colors duration-150 hover:bg-gray-100 p-2 rounded-md">
                                 email
                             </a>
                         </p>
                         <p className="text-sm text-muted-foreground">
-                            <a href="https://github.com/dtsloane" className="text-sm cursor-pointer transition-colors duration-150 hover:bg-gray-100 p-2 rounded-md">
+                            <a href="https://github.com/dtsloane" className="text-sm cursor-auto transition-colors duration-150 hover:bg-gray-100 p-2 rounded-md">
                                 Github
                             </a>
                         </p>
                         <p className="text-sm text-muted-foreground">
-                            <a href="https://x.com/sloanerdog" className="text-sm cursor-pointer transition-colors duration-150 hover:bg-gray-100 p-2 rounded-md">
+                            <a href="https://x.com/sloanerdog" className="text-sm cursor-auto transition-colors duration-150 hover:bg-gray-100 p-2 rounded-md">
                                 X
                             </a>
                         </p>
                         <p className="text-sm text-muted-foreground">
-                            <a href="https://www.linkedin.com/in/dtsloane/" className="text-sm cursor-pointer transition-colors duration-150 hover:bg-gray-100 p-2 rounded-md">
+                            <a href="https://www.linkedin.com/in/dtsloane/" className="text-sm cursor-auto transition-colors duration-150 hover:bg-gray-100 p-2 rounded-md">
                                 LinkedIn
                             </a>
                         </p>
