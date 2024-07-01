@@ -35,7 +35,7 @@ const BooksPage: React.FC<BooksPageProps> = ({ books }) => {
 
   return (
     <BooksLayout>
-      <Breadcrumb>
+      <Breadcrumb className='pt-12'>
           <BreadcrumbList>
               <BreadcrumbItem>
               <BreadcrumbLink href="/">Back</BreadcrumbLink>
@@ -46,7 +46,7 @@ const BooksPage: React.FC<BooksPageProps> = ({ books }) => {
               </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
-      <h1 className="text-lg font-bold mb-2 pt-8">My Bookshelf</h1>
+      <h1 className="text-lg md:text-md font-medium mb-2 pt-8">My Bookshelf</h1>
       <p className='text-sm text-gray-400 font-medium mb-6'>A collection of cool books</p>
       <Bookshelf books={books} onSelectBook={handleSelectBook} />
       {selectedBook && (

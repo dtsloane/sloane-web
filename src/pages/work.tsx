@@ -8,7 +8,6 @@ import {
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
-
 const recognitionLinks = [
     {
         href: 'https://www.independent.ie/business/irish/30-under-30-young-guns-who-are-shooting-for-the-stars/41045671.html',
@@ -22,7 +21,7 @@ const recognitionLinks = [
         href: 'https://www.businesspost.ie/connected/irish-techs-young-guns-this-years-30-under-30/',
         text: '30 under 30 (business post)',
     },
-    //  more links 
+    // more links
 ];
 
 const Work = () => {
@@ -43,15 +42,17 @@ const Work = () => {
                 <div className="mb-8">
                     <h4 className="text-lg md:text-md font-medium">Work</h4>
                     <div className="space-y-4">
-                        <div className="flex items-center space-x-2 mt-4">
-                            <img src="/Cambrean.Logo.png" alt="Cambrean Logo" className="w-6 h-6 rounded transition-transform duration-300 hover:scale-110" />
-                            <a href="https://cambrean.com" target="_blank" rel="noopener noreferrer" className="text-sm cursor-pointer transition-opacity duration-150 hover:opacity-25">
-                                Cambrean
-                            </a>
-                            <p className='text-sm text-muted-foreground'>
-                                Generate better health insights 
-                            </p>
-                        </div>
+                        <a href="https://cambrean.com" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 mt-4 transition-colors duration-150 hover:bg-slate-50 p-2 rounded">
+                            <img src="/Cambrean.Logo.png" alt="Cambrean Logo" className="w-7 h-7 rounded-lg transition-transform duration-300 hover:scale-110" />
+                            <div className='flex-col'>
+                                <span className="text-sm cursor-pointer">
+                                    Cambrean
+                                </span>
+                                <p className='text-sm text-muted-foreground'>
+                                    Generate better health insights
+                                </p>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <div className='space-y-2 pt-8'>
@@ -63,7 +64,7 @@ const Work = () => {
                                 href={link.href}
                                 target='_blank'
                                 rel='noopener noreferrer'
-                                className='text-sm text-slate-400 cursor-pointer transition-opacity duration-150 hover:opacity-25 block'
+                                className='text-sm text-slate-400 cursor-pointer transition-colors duration-150 hover:bg-slate-50 p-2 rounded block'
                             >
                                 {link.text}
                             </a>

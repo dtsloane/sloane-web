@@ -149,8 +149,9 @@ code {
 .bounce-hover:hover {
   animation: bounce 0.5s ease infinite;
 }
+/* framer */
 .blur-effect {
-  filter: blur(8px);
+  filter: blur(10px); /* Adjust this value to increase or decrease blur */
   transition: filter 0.5s ease-out;
 }
 
@@ -158,3 +159,4 @@ code {
   filter: blur(0px);
   transition: filter 0.5s ease-out;
 }
+
