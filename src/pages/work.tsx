@@ -42,7 +42,7 @@ const Work = () => {
                 <div className="mb-8">
                     <h4 className="text-lg md:text-md font-medium">Work</h4>
                     <div className="space-y-4">
-                        <a href="https://cambrean.com" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 mt-4 transition-colors duration-150 hover:bg-slate-50 p-2 rounded">
+                        <a href="https://cambrean.com" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 mt-4 transition-colors duration-150 hover:bg-slate-50 p-2 rounded-md">
                             <img src="/Cambrean.Logo.png" alt="Cambrean Logo" className="w-7 h-7 rounded-lg transition-transform duration-300 hover:scale-110" />
                             <div className='flex-col'>
                                 <span className="text-sm cursor-pointer">
@@ -64,7 +64,7 @@ const Work = () => {
                                 href={link.href}
                                 target='_blank'
                                 rel='noopener noreferrer'
-                                className='text-sm text-slate-400 cursor-pointer transition-colors duration-150 hover:bg-slate-50 p-2 rounded block'
+                                className='text-sm text-slate-400 cursor-pointer transition-colors duration-150 hover:bg-slate-50 p-2 rounded-md block'
                             >
                                 {link.text}
                             </a>
