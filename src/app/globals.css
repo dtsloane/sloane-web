@@ -149,4 +149,12 @@ code {
 .bounce-hover:hover {
   animation: bounce 0.5s ease infinite;
 }
+.blur-effect {
+  filter: blur(8px);
+  transition: filter 0.5s ease-out;
+}
 
+.no-blur {
+  filter: blur(0px);
+  transition: filter 0.5s ease-out;
+}
