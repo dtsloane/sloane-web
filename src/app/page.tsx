@@ -38,11 +38,6 @@ export default function Home() {
               design
             </p>
           </Link>
-          <Link href="/work" passHref>
-            <p className="cursor-pointer text-sm text-muted-foreground hover:text-gray-600 transition-opacity duration-150  hover:bg-gray-100 p-2 rounded-lg space-y-2">
-              work
-            </p>
-          </Link>
           <Link href="/reading" passHref>
             <p className="cursor-pointer text-sm text-muted-foreground hover:text-gray-600 transition-opacity duration-150 hover:bg-gray-100 p-2 rounded-lg space-y-2">
               reading
