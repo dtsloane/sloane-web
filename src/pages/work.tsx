@@ -42,7 +42,7 @@ const Work = () => {
                 <div className="mb-8">
                     <h4 className="text-lg md:text-md font-medium">Work</h4>
                     <div className="space-y-4">
-                        <a href="https://cambrean.com" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 mt-4 transition-colors duration-150 hover:bg-slate-50 p-2 rounded-md">
+                        <a href="https://cambrean.com" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 mt-4 transition-colors duration-200 hover:bg-gray-100 p-3 rounded-lg">
                             <img src="/Cambrean.Logo.png" alt="Cambrean Logo" className="w-7 h-7 rounded-lg transition-transform duration-300 hover:scale-110" />
                             <div className='flex-col'>
                                 <span className="text-sm cursor-pointer">
@@ -55,7 +55,7 @@ const Work = () => {
                         </a>
                     </div>
                 </div>
-                <div className='space-y-2 pt-8'>
+                <div className='space-y-2 pt-4'>
                     <h4 className="text-md md:text-md font-medium">Recognition</h4>
                     <div className='space-y-2'>
                         {recognitionLinks.map((link, index) => (
@@ -64,7 +64,7 @@ const Work = () => {
                                 href={link.href}
                                 target='_blank'
                                 rel='noopener noreferrer'
-                                className='text-sm text-slate-400 cursor-pointer transition-colors duration-150 hover:bg-slate-50 p-2 rounded-md block'
+                                className='text-sm text-slate-400 cursor-pointer transition-colors duration-150 hover:bg-gray-100 hover:text-slate-500 p-2 rounded-md block'
                             >
                                 {link.text}
                             </a>
