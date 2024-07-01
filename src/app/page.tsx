@@ -27,19 +27,19 @@ export default function Home() {
       >
         <h4 className="text-lg md:text-md font-medium leading-none">David Sloane</h4>
         <p className="text-sm text-muted-foreground">Designer, Founder.</p>
-        <div className="pt-8 space-y-2">
+        <div className="pt-8 flex flex-col items-start space-y-2">
           <Link href="/about" passHref>
-            <p className="cursor-auto text-sm text-muted-foreground hover:text-gray-600 transition-opacity duration-150  hover:bg-gray-100 p-2 rounded-lg space-y-2">
+            <p className="inline-block cursor-auto text-sm text-muted-foreground hover:text-gray-600 transition-opacity duration-150  hover:bg-gray-100 p-2 rounded-lg ">
               about
             </p>
           </Link>
           <Link href="/design" passHref>
-            <p className="cursor-auto text-sm text-muted-foreground hover:text-gray-600 transition-opacity duration-150  hover:bg-gray-100 p-2 rounded-lg space-y-2">
+            <p className="inline-block cursor-auto text-sm text-muted-foreground hover:text-gray-600 transition-opacity duration-150  hover:bg-gray-100 p-2 rounded-lg ">
               design
             </p>
           </Link>
           <Link href="/reading" passHref>
-            <p className="cursor-auto text-sm text-muted-foreground hover:text-gray-600 transition-opacity duration-150 hover:bg-gray-100 p-2 rounded-lg space-y-2">
+            <p className="inline-block text-left cursor-auto text-sm text-muted-foreground hover:text-gray-600 transition-opacity duration-150 hover:bg-gray-100 p-2 rounded-lg ">
               reading
             </p>
           </Link>
