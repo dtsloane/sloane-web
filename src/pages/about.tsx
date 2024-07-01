@@ -71,30 +71,30 @@ const About: React.FC = () => {
                     </div>
                 </section>
 
-                {/* Body Section */}
-                <section className="space-y-8">
-                    <div className='space-y-2'>
+               {/* Links */}
+                <section className="pt-4 space-y-4">
                     <h4 className='text-lg font-medium'>Find me</h4>
-                    <p className="text-sm text-muted-foreground">
-                        <a href="mailto:me@davidsloane.xyz" className="text-sm cursor-pointer transition-opacity duration-150 hover:opacity-25">
-                            me@davidsloane.xyz
-                        </a>
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                        <a href="https://github.com/dtsloane" className="text-sm cursor-pointer transition-opacity duration-150 hover:opacity-25">
-                            Github
-                        </a>
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                        <a href="https://x.com/sloanerdog" className="text-sm cursor-pointer transition-opacity duration-150 hover:opacity-25">
-                            X
-                        </a>
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                        <a href="https://www.linkedin.com/in/dtsloane/" className="text-sm cursor-pointer transition-opacity duration-150 hover:opacity-25">
-                            LinkedIn
-                        </a>
-                    </p>
+                    <div className='flex space-x-4'>
+                        <p className="text-sm text-muted-foreground">
+                            <a href="mailto:me@davidsloane.xyz" className="text-sm cursor-pointer transition-colors duration-150 hover:bg-gray-100 p-2 rounded-md">
+                                email
+                            </a>
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                            <a href="https://github.com/dtsloane" className="text-sm cursor-pointer transition-colors duration-150 hover:bg-gray-100 p-2 rounded-md">
+                                Github
+                            </a>
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                            <a href="https://x.com/sloanerdog" className="text-sm cursor-pointer transition-colors duration-150 hover:bg-gray-100 p-2 rounded-md">
+                                X
+                            </a>
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                            <a href="https://www.linkedin.com/in/dtsloane/" className="text-sm cursor-pointer transition-colors duration-150 hover:bg-gray-100 p-2 rounded-md">
+                                LinkedIn
+                            </a>
+                        </p>
                     </div>
                 </section>
             </div>
