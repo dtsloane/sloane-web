@@ -85,7 +85,7 @@ const Work = () => {
                                 href={link.href}
                                 target='_blank'
                                 rel='noopener noreferrer'
-                                className='text-sm text-slate-400 cursor-pointer transition-colors duration-150 hover:bg-gray-100 p-2 rounded-lg block'
+                                className='text-sm text-slate-400 hover:text-slate-500 cursor-pointer transition-colors duration-150 hover:bg-gray-100 p-2 rounded-lg block'
                             >
                                 {link.text}
                             </a>
