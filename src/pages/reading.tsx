@@ -61,7 +61,7 @@ const BooksPage: React.FC<BooksPageProps> = ({ books }) => {
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage>About</BreadcrumbPage>
+                <BreadcrumbPage>Reading</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>

@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useRef, useEffect } from 'react';
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Image from 'next/image';
@@ -37,7 +38,7 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books, onSelectBook }) => {
       </svg>
 
       <ScrollArea className="w-full">
-        <div ref={scrollRef} className="flex space-x-4 p-4">
+        <div ref={scrollRef} className="flex space-x-4 p-4 cursor-pointer">
           {books.map((book, index) => (
             <button
               key={book.title}
@@ -63,7 +64,7 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books, onSelectBook }) => {
                 perspective: "1000px",
                 WebkitPerspective: "1000px",
                 gap: "0px",
-                transition: `transform 500ms ease, width 500ms ease`, // Only animate transform and width
+                transition: `transform 500ms ease, width 500ms ease`, 
                 willChange: "transform, width",
               }}
             >
@@ -76,6 +77,7 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books, onSelectBook }) => {
                   transformOrigin: "right",
                   backgroundColor: book.spineColor,
                   color: book.textColor,
+                  borderRadius: bookIndex === index ? "3px 0 0 3px" : "3px 3px 3px 3px", // Conditional border radius
                   transform: `
                     translate3d(0px, 0px, 0px) 
                     scale3d(${hoveredIndex === index && bookIndex !== index ? 1.05 : 1}, ${hoveredIndex === index && bookIndex !== index ? 1.05 : 1}, 1) 
@@ -84,8 +86,8 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books, onSelectBook }) => {
                     rotateZ(0deg) 
                     skew(0deg, 0deg)
                   `,
-                  transition: "transform 500ms ease", // Only animate transform
-                  willChange: "transform",
+                  transition: "transform 500ms ease, border-radius 500ms ease", 
+                  willChange: "transform, border-radius",
                   filter: "brightness(0.8) contrast(1.5)",
                   transformStyle: "preserve-3d",
                 }}
@@ -105,6 +107,7 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books, onSelectBook }) => {
                   height: '100%',
                   transformOrigin: 'left center',
                   zIndex: bookIndex === index ? 2 : 0,
+                  borderRadius: bookIndex === index ? "0 3px 3px 0" : "3px 3px 3px 3px", // Conditional border radius for cover
                 }}
               >
                 <div className="absolute inset-0" style={{ filter: 'url(#paper-texture)', opacity: 0.15, width: '100%', height: '100%', zIndex: 1 }} />
