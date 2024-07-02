@@ -62,10 +62,10 @@ const PortfolioItem: React.FC<PortfolioItemProps> = React.memo(({ item, index })
   }, [inView]);
 
   return (
-    <div ref={ref} className="w-full max-w-3xl p-4 text-left">
+    <div ref={ref} className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-3xl p-4 text-left">
       {inView && (
         <div
-          className="relative group mt-4"
+          className="relative group mt-4 cursor-pointer"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
@@ -102,7 +102,7 @@ PortfolioItem.displayName = 'PortfolioItem';
 const PortfolioGrid: React.FC = () => {
   return (
     <div className="relative">
-      <div className="flex flex-col items-center space-y-8 p-6">
+      <div className="flex flex-wrap justify-center space-y-8 sm:space-y-4 p-6">
         {items.map((item, index) => (
           <PortfolioItem key={index} item={item} index={index} />
         ))}

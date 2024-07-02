@@ -85,7 +85,7 @@ const About: React.FC = () => {
                                 href={link.href}
                                 target='_blank'
                                 rel='noopener noreferrer'
-                                className='text-sm text-slate-400 hover:text-slate-500 cursor-auto transition-colors duration-150 hover:bg-gray-100 p-2 rounded-lg block'
+                                className='text-sm text-slate-400 hover:text-slate-500 cursor-pointer transition-colors duration-150 hover:bg-gray-100 p-2 rounded-lg block'
                             >
                                 {link.text}
                             </a>
@@ -141,22 +141,22 @@ const About: React.FC = () => {
                     <h4 className='text-lg font-medium'>Find me</h4>
                     <div className='flex space-x-4 pt-4'>
                         <p className="text-sm text-muted-foreground">
-                            <a href="mailto:me@davidsloane.xyz" className="inline-block text-sm cursor-auto transition-colors duration-150 hover:bg-gray-100 p-2 rounded-md">
+                            <a href="mailto:me@davidsloane.xyz" className="inline-block text-sm cursor-pointer transition-colors duration-150 hover:bg-gray-100 p-2 rounded-md">
                                 email
                             </a>
                         </p>
                         <p className="text-sm text-muted-foreground">
-                            <a href="https://github.com/dtsloane" className="inline-block text-sm cursor-auto transition-colors duration-150 hover:bg-gray-100 p-2 rounded-md">
+                            <a href="https://github.com/dtsloane" className="inline-block text-sm cursor-pointer transition-colors duration-150 hover:bg-gray-100 p-2 rounded-md">
                                 Github
                             </a>
                         </p>
                         <p className="text-sm text-muted-foreground">
-                            <a href="https://x.com/sloanerdog" className="inline-block text-sm cursor-auto transition-colors duration-150 hover:bg-gray-100 p-2 rounded-md">
+                            <a href="https://x.com/sloanerdog" className="inline-block text-sm cursor-pointer transition-colors duration-150 hover:bg-gray-100 p-2 rounded-md">
                                 X
                             </a>
                         </p>
                         <p className="text-sm text-muted-foreground">
-                            <a href="https://www.linkedin.com/in/dtsloane/" className="inline-block text-sm cursor-auto transition-colors duration-150 hover:bg-gray-100 p-2 rounded-md">
+                            <a href="https://www.linkedin.com/in/dtsloane/" className="inline-block text-sm cursor-pointer transition-colors duration-150 hover:bg-gray-100 p-2 rounded-md">
                                 LinkedIn
                             </a>
                         </p>
