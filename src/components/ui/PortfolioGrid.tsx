@@ -88,11 +88,14 @@ const PortfolioItem: React.FC<PortfolioItemProps> = React.memo(({ item, index })
                 preload="auto"
               />
             ) : null}
+            <div className="absolute inset-0 bg-gradient-to-t from-stone-800 via-transparent to-transparent opacity-0 group-hover:opacity-35 transition-opacity duration-500"></div>
+            <div className="absolute bottom-0 left-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white">
+              <h3 className="text-md font-semibold">{item.title}</h3>
+              <p className="text-sm">{item.year}</p>
+            </div>
           </div>
         </div>
       )}
-      <h3 className="text-sm text-gray-400 font-medium mt-2">{item.title}</h3>
-      <p className="text-sm text-gray-900">{item.year}</p>
     </div>
   );
 });
