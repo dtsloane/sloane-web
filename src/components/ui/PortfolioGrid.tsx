@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useRef, useCallback } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 interface Item {
@@ -27,10 +27,9 @@ const items: Item[] = [
 interface PortfolioItemProps {
   item: Item;
   index: number;
-  openModal: (item: Item) => void;
 }
 
-const PortfolioItem: React.FC<PortfolioItemProps> = React.memo(({ item, index, openModal }) => {
+const PortfolioItem: React.FC<PortfolioItemProps> = React.memo(({ item, index }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     rootMargin: '200px 0px',
@@ -53,12 +52,20 @@ const PortfolioItem: React.FC<PortfolioItemProps> = React.memo(({ item, index, o
     }
   }, []);
 
+  React.useEffect(() => {
+    if (inView && videoRef.current) {
+      videoRef.current.load();
+      videoRef.current.play().catch(() => {
+        // Autoplay was prevented, handle if needed
+      });
+    }
+  }, [inView]);
+
   return (
     <div ref={ref} className="w-full max-w-3xl p-4 text-left">
       {inView && (
         <div
-          className="relative group cursor-pointer mt-4"
-          onClick={() => openModal(item)}
+          className="relative group mt-4"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
@@ -78,7 +85,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = React.memo(({ item, index, o
                 className="absolute top-0 left-0 w-full h-full object-contain rounded-md transition-transform duration-300 group-hover:scale-105 group-hover:shadow-lg"
                 src={item.src}
                 muted
-                preload="metadata"
+                preload="auto"
               />
             ) : null}
           </div>
@@ -93,51 +100,13 @@ const PortfolioItem: React.FC<PortfolioItemProps> = React.memo(({ item, index, o
 PortfolioItem.displayName = 'PortfolioItem';
 
 const PortfolioGrid: React.FC = () => {
-  const [selectedItem, setSelectedItem] = useState<Item | null>(null);
-
-  const openModal = useCallback((item: Item) => {
-    setSelectedItem(item);
-  }, []);
-
-  const closeModal = useCallback(() => {
-    setSelectedItem(null);
-  }, []);
-
   return (
     <div className="relative">
       <div className="flex flex-col items-center space-y-8 p-6">
         {items.map((item, index) => (
-          <PortfolioItem key={index} item={item} index={index} openModal={openModal} />
+          <PortfolioItem key={index} item={item} index={index} />
         ))}
       </div>
-
-      {selectedItem && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm" onClick={closeModal}>
-          <div className="relative w-auto max-w-6xl h-auto max-h-screen bg-transparent overflow-auto" onClick={(e) => e.stopPropagation()}>
-            <div className="relative w-full h-full p-4">
-              {selectedItem.type === 'image' ? (
-                <Image
-                  alt="Selected Item"
-                  className="w-auto h-auto max-w-full max-h-screen object-contain"
-                  src={selectedItem.src}
-                  width={1920}
-                  height={1080}
-                />
-              ) : selectedItem.type === 'video' ? (
-                <video
-                  className="w-auto h-auto max-w-full max-h-screen object-contain"
-                  src={selectedItem.src}
-                  controls
-                  autoPlay
-                >
-                  <source src={selectedItem.src} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              ) : null}
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
