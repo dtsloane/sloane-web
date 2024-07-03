@@ -62,14 +62,14 @@ const PortfolioItem: React.FC<PortfolioItemProps> = React.memo(({ item, index })
   }, [inView]);
 
   return (
-    <div ref={ref} className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-3xl p-4 text-left">
+    <div ref={ref} className="w-full max-w-2xl p-4 text-left">
       {inView && (
         <div
           className="relative group mt-4 cursor-pointer"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <div className={`relative w-full h-0 ${item.type === 'image' ? 'pb-[95%]' : 'pb-[56.25%]'} overflow-hidden rounded-md`}>
+          <div className={`relative w-full h-0 ${item.type === 'image' ? 'pb-[70%]' : 'pb-[56.25%]'} overflow-hidden rounded-md`}>
             {item.type === 'image' ? (
               <Image
                 alt={`Item ${index + 1}`}
@@ -90,8 +90,8 @@ const PortfolioItem: React.FC<PortfolioItemProps> = React.memo(({ item, index })
             ) : null}
             <div className="absolute inset-0 bg-gradient-to-t from-stone-800 via-transparent to-transparent opacity-0 group-hover:opacity-35 transition-opacity duration-500"></div>
             <div className="absolute bottom-0 left-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white">
-              <h3 className="text-md font-semibold">{item.title}</h3>
-              <p className="text-sm">{item.year}</p>
+              <h3 className="text-lg font-semibold">{item.title}</h3>
+              <p className="text-md">{item.year}</p>
             </div>
           </div>
         </div>
@@ -102,10 +102,10 @@ const PortfolioItem: React.FC<PortfolioItemProps> = React.memo(({ item, index })
 
 PortfolioItem.displayName = 'PortfolioItem';
 
-const PortfolioGrid: React.FC = () => {
+const PortfolioTimeline: React.FC = () => {
   return (
     <div className="relative">
-      <div className="flex flex-wrap justify-center space-y-8 sm:space-y-4 p-6">
+      <div className="flex flex-col items-center space-y-12 p-8">
         {items.map((item, index) => (
           <PortfolioItem key={index} item={item} index={index} />
         ))}
@@ -114,4 +114,4 @@ const PortfolioGrid: React.FC = () => {
   );
 };
 
-export default PortfolioGrid;
+export default PortfolioTimeline;
