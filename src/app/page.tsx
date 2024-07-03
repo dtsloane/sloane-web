@@ -102,7 +102,7 @@ export default function Home() {
               <img src="/Cambrean.Logo.png" alt="Cambrean Logo" className="w-7 h-7 rounded-lg transition-transform duration-300 hover:scale-110" />
               <div className='flex-col'>
                 <span className="text-sm cursor-pointer">Cambrean</span>
-                <p className='text-sm text-muted-foreground'>Generate better health insights</p>
+                <p className='text-sm text-muted-foreground'>Co-founder, CEO</p>
               </div>
             </a>
           </div>
