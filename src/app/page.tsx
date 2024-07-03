@@ -138,7 +138,7 @@ export default function Home() {
           className="pt-6"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.4, duration: 0.8 }}
+          transition={{ delay: 1.8, duration: 0.8 }}
         >
           <h4 className='text-xs font-medium'>Find me</h4>
           <div className='flex space-x-2 pt-2'>
