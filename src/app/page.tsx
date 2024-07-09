@@ -25,11 +25,6 @@ const recognitionLinks = [
     text: 'Cobh Ramblers U19 player develops new platform..',
     subtext: "Echo, 2021",
   },
-  {
-    href: 'https://www.rte.ie/news/boost-my-business/2021/0522/1223116-moments-of-joy-in-business-this-year/',
-    text: 'Moments in Business this year',
-    subtext: "RTÉ, 2021",
-  },
   // more links
 ];
 
