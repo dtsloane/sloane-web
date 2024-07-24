@@ -142,9 +142,9 @@ export default function Home() {
         >
           <h4 className='text-xs font-medium'>Find me</h4>
           <div className='flex space-x-2 pt-2'>
-            <a href="mailto:me@davidsloane.xyz" className="inline-block text-sm cursor-pointer transition-colors duration-150 hover:bg-gray-100 p-2 rounded-md text-muted-foreground">email</a>
+            <a href="mailto:me@davidsloane.xyz" className="inline-block text-sm cursor-pointer transition-colors duration-150 hover:bg-gray-100 p-2 rounded-md text-muted-foreground">Email</a>
             <a href="https://github.com/dtsloane" className="inline-block text-sm cursor-pointer transition-colors duration-150 hover:bg-gray-100 p-2 rounded-md text-muted-foreground">Github</a>
-            <a href="https://x.com/sloanerdog" className="inline-block text-sm cursor-pointer transition-colors duration-150 hover:bg-gray-100 p-2 rounded-md text-muted-foreground">X</a>
+            <a href="https://x.com/sloanerdog" className="inline-block text-sm cursor-pointer transition-colors duration-150 hover:bg-gray-100 p-2 rounded-md text-muted-foreground">X/Bird</a>
             <a href="https://www.linkedin.com/in/dtsloane/" className="inline-block text-sm cursor-pointer transition-colors duration-150 hover:bg-gray-100 p-2 rounded-md text-muted-foreground">LinkedIn</a>
           </div>
         </motion.section>
