@@ -17,17 +17,17 @@ interface BlogIndexProps {
 
 const BlogIndex: React.FC<BlogIndexProps> = ({ posts }) => {
   return (
-    <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
-        <div className="px-8 py-6">
-          <h1 className="text-3xl font-bold text-center mb-6">Blog</h1>
+    <div className="flex flex-col items-center justify-start p-6 md:p-32 min-h-screen overflow-auto">
+        <h1 className="items-start text-md font-md text-left mb-6">Blog</h1>
+      <div className="flex flex-col items-start transition-opacity duration-150 hover:bg-gray-100 rounded-lg">
+        <div className="px-6 py-2">
           <ul className="divide-y divide-gray-200">
             {posts.map((post) => (
               <li key={post.slug} className="py-4">
-               <Link href={`/blog/${post.slug}`} className="text-2xl font-bold text-blue-500 hover:underline">
+               <Link href={`/blog/${post.slug}`} className="text-md font-bold text-blue-500 hover:underline">
                     {post.title}
                 </Link>
-                <p className="text-gray-600">{post.date}</p>
+                <p className="text-gray-400 text-sm">{post.date}</p>
               </li>
             ))}
           </ul>
