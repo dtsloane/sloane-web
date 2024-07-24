@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import PortfolioGrid from '../components/ui/PortfolioGrid';
+import PortfolioGrid from '../components/PortfolioGrid';
 import { motion } from 'framer-motion';
 import '../app/globals.css';
 import {

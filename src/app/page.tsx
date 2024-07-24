@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import './globals.css';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const recognitionLinks = [
   {
@@ -65,29 +66,23 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
         >
-          <Link href="/design" legacyBehavior>
-            <a className='flex w-full'>
-              <div className='flex flex-col items-start transition-opacity duration-150 hover:bg-gray-100 rounded-lg p-2.5 w-full'>
-                <p className="text-sm">Design (12)</p>
-                <p className="text-xs text-muted-foreground pt-1">What I've worked on</p>
-              </div>
-            </a>
+          <Link href="/design" className='flex w-full'>
+            <div className='flex flex-col items-start transition-opacity duration-150 hover:bg-gray-100 rounded-lg p-2.5 w-full'>
+              <p className="text-sm">Design (12)</p>
+              <p className="text-xs text-muted-foreground pt-1">What I've worked on</p>
+            </div>
           </Link>
-          <Link href="/reading" legacyBehavior>
-            <a className='flex w-full'>
-              <div className='flex flex-col items-start transition-opacity duration-150 hover:bg-gray-100 rounded-lg p-2.5 w-full'>
-                <p className="text-sm">Reading (14)</p>
-                <p className="text-xs text-muted-foreground pt-1">Collection of words</p>
-              </div>
-            </a>
+          <Link href="/reading" className='flex w-full'>
+            <div className='flex flex-col items-start transition-opacity duration-150 hover:bg-gray-100 rounded-lg p-2.5 w-full'>
+              <p className="text-sm">Reading (14)</p>
+              <p className="text-xs text-muted-foreground pt-1">Collection of words</p>
+            </div>
           </Link>
-          <Link href="/about" legacyBehavior>
-            <a className='flex w-full'>
-              <div className='flex flex-col items-start transition-opacity duration-150 hover:bg-gray-100 rounded-lg p-2.5 w-full'>
-                <p className="text-sm">Writings (0)</p>
-                <p className="text-xs text-muted-foreground pt-1">Some of my words</p>
-              </div>
-            </a>
+          <Link href="/about" className='flex w-full'>
+            <div className='flex flex-col items-start transition-opacity duration-150 hover:bg-gray-100 rounded-lg p-2.5 w-full'>
+              <p className="text-sm">Writings (0)</p>
+              <p className="text-xs text-muted-foreground pt-1">Some of my words</p>
+            </div>
           </Link>
         </motion.div>
         <motion.div
@@ -99,7 +94,7 @@ export default function Home() {
           <h4 className="text-xs md:text-xs font-medium pt-0">Work</h4>
           <div className="space-y-4">
             <a href="https://cambrean.com" target="_blank" rel="noopener noreferrer" className="flex items-center cursor-pointer space-x-4 mt-1 transition-colors duration-150 hover:bg-slate-100 p-2.5 rounded-xl">
-              <img src="/Cambrean.Logo.png" alt="Cambrean Logo" className="w-7 h-7 rounded-lg transition-transform duration-300 hover:scale-110" />
+              <Image src="/Cambrean.Logo.png" alt="Cambrean Logo" width={28} height={28} className="rounded-lg transition-transform duration-300 hover:scale-110" />
               <div className='flex-col'>
                 <span className="text-sm cursor-pointer">Cambrean</span>
                 <p className='text-sm text-muted-foreground'>Co-founder, CEO</p>

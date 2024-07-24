@@ -159,4 +159,18 @@ code {
   filter: blur(0px);
   transition: filter 0.5s ease-out;
 }
+.prose h2 {
+  @apply text-xl font-semibold mt-6 mb-4;
+}
 
+.prose p {
+  @apply my-4;
+}
+
+.prose ul {
+  @apply list-disc list-inside my-4;
+}
+
+.prose li {
+  @apply my-2;
+}
