@@ -1,7 +1,6 @@
 import React from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import BlogPost from '../../components/BlogPost';
-import '../app/globals.css';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
@@ -20,11 +19,12 @@ const BlogPostPage: React.FC<BlogPostPageProps> = (props) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const files = fs.readdirSync(path.join(process.cwd(), 'content', 'blog'));
+  const postsDirectory = path.join(process.cwd(), 'src', 'pages', 'blog', 'content');
+  const filenames = fs.readdirSync(postsDirectory);
 
-  const paths = files.map((file) => ({
+  const paths = filenames.map((filename) => ({
     params: {
-      slug: file.replace('.md', ''),
+      slug: filename.replace('.md', ''),
     },
   }));
 
@@ -35,8 +35,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const slug = params?.slug;
-  const filePath = path.join(process.cwd(), 'content', 'blog', `${slug}.md`);
+  const slug = params?.slug as string;
+  const filePath = path.join(process.cwd(), 'src', 'pages', 'blog', 'content', `${slug}.md`);
   const fileContent = fs.readFileSync(filePath, 'utf8');
 
   const { data, content } = matter(fileContent);
@@ -48,7 +48,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       title: data.title,
       date: data.date,
       content: contentHtml,
-      handwrittenNote: data.handwrittenNote,
+      handwrittenNote: data.handwrittenNote || null,
     },
   };
 };
