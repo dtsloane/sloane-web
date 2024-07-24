@@ -4,7 +4,7 @@ import Image from 'next/image';
 interface BlogPostProps {
   title: string;
   date: string;
-  content: string[];
+  content: string;
   handwrittenNote?: string;
 }
 
@@ -16,9 +16,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ title, date, content, handwrittenNo
           <h1 className="text-3xl font-bold text-center mb-2">{title}</h1>
           <p className="text-gray-600 text-center mb-6">{date}</p>
           <div className="prose prose-lg mx-auto">
-            {content.map((paragraph, index) => (
-              <p key={index} className="mb-4">{paragraph}</p>
-            ))}
+            <div dangerouslySetInnerHTML={{ __html: content }} />
           </div>
           {handwrittenNote && (
             <div className="mt-8 flex justify-end">
