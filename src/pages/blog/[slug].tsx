@@ -7,6 +7,7 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 
+
 interface BlogPostPageProps {
   title: string;
   date: string;
