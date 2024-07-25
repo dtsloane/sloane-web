@@ -9,7 +9,7 @@ const recognitionLinks = [
   {
     href: 'https://www.independent.ie/business/irish/30-under-30-young-guns-who-are-shooting-for-the-stars/41045671.html',
     text: "30 under 30: Young guns who are shooting for the stars",
-    subtext: "Independent, 2021",
+    subtext: "Irish Independent, 2021",
   },
   {
     href: 'https://www.businesspost.ie/connected/irish-techs-young-guns-this-years-30-under-30/',
@@ -24,7 +24,12 @@ const recognitionLinks = [
   {
     href: 'https://www.echolive.ie/corksport/arid-40250135.html',
     text: 'Cobh Ramblers U19 player develops new platform..',
-    subtext: "Echo, 2021",
+    subtext: "The Irish Echo, 2021",
+  },
+  {
+    href: 'https://www.rte.ie/news/boost-my-business/2021/0522/1223116-moments-of-joy-in-business-this-year/',
+    text: 'Moments in Business',
+    subtext: "RTÉ News, 2021",
   },
   // more links
 ];
@@ -78,7 +83,7 @@ export default function Home() {
               <p className="text-xs text-muted-foreground pt-1">Collection of words</p>
             </div>
           </Link>
-          <Link href="/about" className='flex w-full'>
+          <Link href="/blog" className='flex w-full'>
             <div className='flex flex-col items-start transition-opacity duration-150 hover:bg-gray-100 rounded-lg p-2.5 w-full'>
               <p className="text-sm">Writings (0)</p>
               <p className="text-xs text-muted-foreground pt-1">Some of my words</p>
