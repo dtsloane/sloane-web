@@ -14,14 +14,27 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books, onSelectBook }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const bookWidth = 240;
-  const spineWidth = 40;
-  const bookHeight = 300;
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const mobileBookWidth = 160;
+  const mobileSpineWidth = 30;
+  const mobileBookHeight = 200;
+
+  const currentBookWidth = isMobile ? mobileBookWidth : 240;
+  const currentSpineWidth = isMobile ? mobileSpineWidth : 40;
+  const currentBookHeight = isMobile ? mobileBookHeight : 300;
 
   // Adjust the width of the scroll area to account for the selected book
   useEffect(() => {
     if (scrollRef.current) {
-      const scrollWidth = books.length * spineWidth + (bookIndex !== null ? bookWidth - spineWidth : 0);
+      const scrollWidth = books.length * currentSpineWidth + (bookIndex !== null ? currentBookWidth - currentSpineWidth : 0);
       scrollRef.current.style.width = `${scrollWidth}px`;
     }
   }, [bookIndex, books.length]);
@@ -59,8 +72,8 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books, onSelectBook }) => {
                 justifyContent: "flex-start",
                 outline: "none",
                 flexShrink: 0,
-                transform: `translateX(-${bookIndex !== null ? spineWidth * bookIndex : 0}px)`,
-                width: bookIndex === index ? bookWidth : spineWidth,
+                transform: `translateX(-${bookIndex !== null ? currentSpineWidth * bookIndex : 0}px)`,
+                width: bookIndex === index ? currentBookWidth : currentSpineWidth,
                 perspective: "1000px",
                 WebkitPerspective: "1000px",
                 gap: "0px",
@@ -71,8 +84,8 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books, onSelectBook }) => {
               <div
                 className="relative flex items-center justify-center overflow-hidden"
                 style={{
-                  width: spineWidth,
-                  height: bookHeight,
+                  width: currentSpineWidth,
+                  height: currentBookHeight,
                   flexShrink: 0,
                   transformOrigin: "right",
                   backgroundColor: book.spineColor,
