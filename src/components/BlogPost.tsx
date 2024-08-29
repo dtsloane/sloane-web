@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import ReactMarkdown from 'react-markdown';
 
 interface BlogPostProps {
   title: string;
@@ -13,9 +14,9 @@ interface BlogPostProps {
 
 const BlogPost: React.FC<BlogPostProps> = ({ title, date, content, handwrittenNote }) => {
   return (
-    <div className="flex flex-col items-center justify-start p-8 md:p-32 min-h-screen overflow-auto bg-white">
+    <div className="flex flex-col items-center justify-center min-h-screen p-8 md:p-32 overflow-auto bg-white">
       <motion.div
-        className="flex flex-col items-start space-y-2 w-full md:max-w-2xl text-left py-16"
+        className="flex flex-col items-center space-y-2 w-full max-w-2xl text-center py-16"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.8 }}
@@ -43,12 +44,12 @@ const BlogPost: React.FC<BlogPostProps> = ({ title, date, content, handwrittenNo
           transition={{ delay: 0.6, duration: 0.8 }}
         >
           <div className="prose prose-sm md:prose-base lg:prose-lg xl:prose-xl max-w-none">
-            <div dangerouslySetInnerHTML={{ __html: content }} />
+            <ReactMarkdown>{content}</ReactMarkdown>
           </div>
         </motion.div>
         {handwrittenNote && (
           <motion.div
-            className="mt-8 flex justify-end w-full"
+            className="mt-8 flex justify-center w-full"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
