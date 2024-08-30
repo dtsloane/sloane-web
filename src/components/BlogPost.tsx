@@ -9,13 +9,15 @@ interface BlogPostProps {
 
 const BlogPost: React.FC<BlogPostProps> = ({ title, date, content }) => {
   return (
-    <div className="max-w-2xl mx-auto p-8">
-      <h1 className="text-2xl font-bold mb-2">{title}</h1>
-      <span className="text-sm text-gray-600 mb-4 block">{date}</span>
+    <div className="max-w-xl mx-auto p-8">
+      <h1 className="text-xl font-bold mb-2">{title}</h1>
+      <span className="text-sm text-gray-400 mb-4 block">{date}</span>
       <ReactMarkdown
         components={{
-          p: ({ children }) => <>{children}</>
+          p: ({ children }) => <p className="mb-4 text-gray-700">{children}</p>,
+          // Add more components here for other elements if needed
         }}
+        className="prose prose-sm prose-gray text-gray-700"
       >
         {content}
       </ReactMarkdown>

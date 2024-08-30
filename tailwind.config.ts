@@ -7,7 +7,7 @@ const config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+  ],
   prefix: "",
   theme: {
     container: {
@@ -72,6 +72,45 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      typography: (theme: any) => ({
+        sm: {
+          css: {
+            fontSize: '0.75rem',
+            lineHeight: '1.25rem',
+            p: {
+              marginBottom: '0.75em',
+            },
+            h1: {
+              fontSize: '1.25rem',
+              marginTop: '1em',
+              marginBottom: '0.5em',
+            },
+            h2: {
+              fontSize: '1.125rem',
+              marginTop: '1em',
+              marginBottom: '0.5em',
+            },
+            h3: {
+              fontSize: '1rem',
+              marginTop: '1em',
+              marginBottom: '0.5em',
+            },
+            a: {
+              color: theme('colors.blue.600'),
+              '&:hover': {
+                color: theme('colors.blue.500'),
+              },
+            },
+            // Add more element styles as needed
+          },
+        },
+        DEFAULT: {
+          css: {
+            color: theme('colors.gray.700'),
+            maxWidth: 'none',
+          },
+        },
+      }),
     },
   },
   plugins: [
