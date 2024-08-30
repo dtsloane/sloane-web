@@ -5,8 +5,6 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
-import html from 'remark-html';
-
 
 interface BlogPostPageProps {
   title: string;
@@ -41,14 +39,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const fileContent = fs.readFileSync(filePath, 'utf8');
 
   const { data, content } = matter(fileContent);
-  const processedContent = await remark().use(html).process(content);
-  const contentHtml = processedContent.toString();
+  // Remove HTML processing:
+  const processedContent = await remark().process(content);
+  const contentMarkdown = processedContent.toString();
 
   return {
     props: {
       title: data.title,
       date: data.date,
-      content: contentHtml,
+      content: contentMarkdown,
       handwrittenNote: data.handwrittenNote || null,
     },
   };
