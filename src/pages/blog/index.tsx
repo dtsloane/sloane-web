@@ -6,6 +6,7 @@ import '../../app/globals.css';
 import path from 'path';
 import fs from 'fs';
 import matter from 'gray-matter';
+import React, { useState, useEffect } from 'react';
 
 interface BlogPost {
   slug: string;
@@ -18,10 +19,16 @@ interface BlogIndexProps {
 }
 
 const BlogIndex: React.FC<BlogIndexProps> = ({ posts }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
   return (
-    <div className="flex flex-col items-center justify-start p-8 md:p-32 min-h-screen overflow-auto">
+    <div className={`flex flex-col items-center justify-start p-8 md:p-32 min-h-screen overflow-auto ${isLoaded ? 'no-blur' : 'blur-effect'}`}>
       <motion.div
-        className="flex flex-col items-start space-y-2 w-full md:w-auto text-left py-16"
+        className={`flex flex-col items-start space-y-2 w-full md:w-auto text-left ${isLoaded ? 'no-blur' : 'blur-effect'} py-16`}
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.8 }}
@@ -94,9 +101,6 @@ export async function getStaticProps() {
     props: {
       posts,
     },
-    // Next.js will attempt to re-generate the page:
-    // - When a request comes in
-    // - At most once every 10 seconds
     revalidate: 10, // In seconds
   };
 }
