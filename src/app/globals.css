@@ -95,7 +95,7 @@ code {
 .grid-item {
   position: relative;
   width: 100%;
-  padding-top: 100%; /* 1:1 Aspect Ratio */
+  padding-top: 100%; 
   overflow: hidden;
 }
 
@@ -117,15 +117,15 @@ code {
 }
 
 .w-12 {
-  width: 3rem; /* Adjust for spine width */
+  width: 3rem; /* spine width */
 }
 
 .w-40 {
-  width: 10rem; /* Adjust for cover width */
+  width: 10rem; /* cover width */
 }
 
 .hover\:w-14:hover {
-  width: 3.5rem; /* Adjust for hover effect */
+  width: 3.5rem; 
 }
 
 .shadow-md {
@@ -151,7 +151,7 @@ code {
 }
 /* framer */
 .blur-effect {
-  filter: blur(10px); /* Adjust this value to increase or decrease blur */
+  filter: blur(10px); 
   transition: filter 0.5s ease-out;
 }
 
