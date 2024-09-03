@@ -15,7 +15,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ title, date, content }) => {
       <ReactMarkdown
         components={{
           p: ({ children }) => <p className="mb-4 text-gray-700">{children}</p>,
-          // Add more components here for other elements if needed
+          // 
         }}
         className="prose prose-sm prose-gray text-gray-700"
       >
