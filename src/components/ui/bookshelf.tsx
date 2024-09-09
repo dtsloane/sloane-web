@@ -106,7 +106,20 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books, onSelectBook }) => {
                 }}
               >
                 <div className="absolute inset-0" style={{ filter: 'url(#paper-texture)', opacity: 0.2, width: '100%', height: '100%' }} />
-                <p className="text-sm font-bold whitespace-nowrap" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
+                <p 
+                  className={`font-bold whitespace-nowrap ${isMobile ? 'text-xs' : 'text-sm'}`} 
+                  style={{ 
+                    writingMode: 'vertical-rl', 
+                    transform: 'rotate(180deg)',
+                    maxHeight: '100%',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    display: '-webkit-box',
+                    WebkitLineClamp: 3,
+                    WebkitBoxOrient: 'vertical',
+                    wordBreak: 'break-word'
+                  }}
+                >
                   {book.title}
                 </p>
               </div>
