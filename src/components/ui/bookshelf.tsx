@@ -114,9 +114,9 @@ const Bookshelf: React.FC<BookshelfProps> = ({ books, onSelectBook }) => {
               <div
                 className="absolute inset-0 transition-all duration-300 overflow-hidden" // Adjusted duration for book cover
                 style={{
-                  transform: bookIndex === index ? 'rotateY(0deg) translateX(40px)' : 'rotateY(90deg) translateX(40px)',
+                  transform: bookIndex === index ? `rotateY(0deg) translateX(${currentSpineWidth}px)` : `rotateY(90deg) translateX(${currentSpineWidth}px)`,
                   opacity: bookIndex === index ? 1 : 0,
-                  width: '200px',
+                  width: `${currentBookWidth - currentSpineWidth}px`,
                   height: '100%',
                   transformOrigin: 'left center',
                   zIndex: bookIndex === index ? 2 : 0,
