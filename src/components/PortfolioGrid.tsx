@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { useRef, useCallback } from 'react';
+import React, { useRef, useCallback, useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 interface Item {
@@ -36,14 +36,19 @@ const PortfolioItem: React.FC<PortfolioItemProps> = React.memo(({ item, index })
   });
 
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+
+  const handleVideoLoaded = useCallback(() => {
+    setIsVideoLoaded(true);
+  }, []);
 
   const handleMouseEnter = useCallback(() => {
-    if (videoRef.current) {
+    if (videoRef.current && isVideoLoaded) {
       videoRef.current.play().catch(() => {
         // Autoplay was prevented, handle if needed
       });
     }
-  }, []);
+  }, [isVideoLoaded]);
 
   const handleMouseLeave = useCallback(() => {
     if (videoRef.current) {
@@ -52,14 +57,17 @@ const PortfolioItem: React.FC<PortfolioItemProps> = React.memo(({ item, index })
     }
   }, []);
 
-  React.useEffect(() => {
-    if (inView && videoRef.current) {
-      videoRef.current.load();
-      videoRef.current.play().catch(() => {
-        // Autoplay was prevented, handle if needed
-      });
+  useEffect(() => {
+    if (inView && videoRef.current && item.type === 'video') {
+      const videoElement = videoRef.current;
+      videoElement.load();
+      videoElement.addEventListener('loadeddata', handleVideoLoaded);
+      
+      return () => {
+        videoElement.removeEventListener('loadeddata', handleVideoLoaded);
+      };
     }
-  }, [inView]);
+  }, [inView, item.type, handleVideoLoaded]);
 
   return (
     <div ref={ref} className="w-full max-w-2xl p-4 text-left">
@@ -80,13 +88,21 @@ const PortfolioItem: React.FC<PortfolioItemProps> = React.memo(({ item, index })
                 priority={index < 2}
               />
             ) : item.type === 'video' ? (
-              <video
-                ref={videoRef}
-                className="absolute top-0 left-0 w-full h-full object-contain rounded-md transition-transform duration-300 group-hover:scale-105 group-hover:shadow-lg"
-                src={item.src}
-                muted
-                preload="auto"
-              />
+              <>
+                <video
+                  ref={videoRef}
+                  className="absolute top-0 left-0 w-full h-full object-contain rounded-md transition-transform duration-300 group-hover:scale-105 group-hover:shadow-lg"
+                  src={item.src}
+                  muted
+                  playsInline
+                  preload="metadata"
+                />
+                {!isVideoLoaded && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
+                    <span className="text-gray-500">Loading...</span>
+                  </div>
+                )}
+              </>
             ) : null}
             <div className="absolute inset-0 bg-gradient-to-t from-stone-800 via-transparent to-transparent opacity-0 group-hover:opacity-35 transition-opacity duration-500"></div>
             <div className="absolute bottom-0 left-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white">
