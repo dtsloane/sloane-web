@@ -37,6 +37,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = React.memo(({ item, index })
 
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [isVideoPreloaded, setIsVideoPreloaded] = useState(false);
 
   const handleVideoLoaded = useCallback(() => {
     setIsVideoLoaded(true);
@@ -60,10 +61,20 @@ const PortfolioItem: React.FC<PortfolioItemProps> = React.memo(({ item, index })
   useEffect(() => {
     if (inView && videoRef.current && item.type === 'video') {
       const videoElement = videoRef.current;
+      
+      // Preload video when in view
+      videoElement.preload = 'auto';
       videoElement.load();
+
+      const handleCanPlayThrough = () => {
+        setIsVideoPreloaded(true);
+      };
+
+      videoElement.addEventListener('canplaythrough', handleCanPlayThrough);
       videoElement.addEventListener('loadeddata', handleVideoLoaded);
       
       return () => {
+        videoElement.removeEventListener('canplaythrough', handleCanPlayThrough);
         videoElement.removeEventListener('loadeddata', handleVideoLoaded);
       };
     }
@@ -96,8 +107,9 @@ const PortfolioItem: React.FC<PortfolioItemProps> = React.memo(({ item, index })
                   muted
                   playsInline
                   preload="metadata"
+                  poster={`/thumbnails/${item.src.split('/').pop()?.replace('.mp4', '.jpg')}`}
                 />
-                {!isVideoLoaded && (
+                {!isVideoPreloaded && (
                   <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
                     <span className="text-gray-500">Loading...</span>
                   </div>
